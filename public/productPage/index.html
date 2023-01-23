@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <script type="text/javascript" src="index.js" defer></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>E-commerce product page</title>
+
+</head>
+<body>
+  <nav>
+    <div id="nav-front">
+      <div id="icon"><img src="images/logo.svg" alt="logo"></div>
+      <ul id="menu">
+        <li><a href="">Collections</a></li>
+        <li><a href="">Men</a></li>
+        <li><a href="">Women</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
+    </div>
+    <div id="nav-back">
+      <img src="images/icon-cart.svg" alt="shopping cart">
+      <img id="avatarpic" src="images/image-avatar.png" alt="avatar profile">
+    </div>
+  </nav>
+  <hr id="line">
+  <article>
+    <div id="shoe-display">
+      <div id="current-photo">
+        <img id="img-1"src="images/image-product-1.jpg">
+      </div>
+      <div id="photo-array">
+        <img id = "" src="images/image-product-1-thumbnail.jpg">
+        <img id="" src="images/image-product-2-thumbnail.jpg">
+        <img id ="" src="images/image-product-3-thumbnail.jpg">
+        <img src="images/image-product-4-thumbnail.jpg">
+      </div>
+    </div>
+    <div id="shoe-description">
+      <p><span style ="color: #df7f37">Sneaker Company</span></p>
+      <h1>Fall Limited Edition Sneakers</h1>
+      <p>
+        These low-profile sneakers are your perfect casual wear companion. Featuring a 
+        durable rubber outer sole, they’ll withstand everything the weather can offer.
+      </p>
+      <div id="price-dis">
+        <h1 id="price"><b>replace</b></h1>
+        <p id="discount">50%</p>
+      </div>
+      <div id="past-price"><p>replace</p></div>
+      <div id="add-sub-cart">
+        <div id="add-sub">
+          <button id="first-btn"><img src="images/icon-minus.svg"></button>
+          <p>replace</p>
+          <button id="snd-btn"><img src="images/icon-plus.svg"> </button>
+        </div>
+        <button id="cart-btn"><img src="images/icon-cart.svg" alt="shopping cart"><p>Add to cart</p></button>
+      </div>
+    </div>
+  </article>
+  <div id="database-form">
+    <p>Adding shoes to the database</p>
+    <div class="input-container">
+      <label for="brandString-input">Shoe brand</label>
+      <input type="text" id="brandString-input"/>
+    </div>
+    <div class="input-container">
+      <label for="priceString-input">Shoe price</label>
+      <input type="number" id="priceString-input"/>
+    </div>
+    <div class="input-container">
+      <label for="desString-input">Shoe description</label>
+      <input type="text" id="desString-input"/>
+    </div>
+    <div class="input-container">
+      <label for= "image-input">Enter image URL</label>
+      <input type="text" id="image-input"/>
+    </div>
+    <div class="input-container">
+      <select name="stock" id="stock-bool">
+          <option value=true>In Stock</option>
+          <option value=false>Out of Stock</option>
+      </select>
+    </div>
+    <button id="submit-button">Create</button>
+  </div>
+</body>
+</html>
