@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
-  <title>Frontend Mentor | E-commerce product page</title>
+  <title>Database form</title>
 
 </head>
 <body>
@@ -16,7 +16,7 @@
       <div id="icon"><img src="images/logo.svg" alt="logo"></div>
       <ul id="menu">
         <li><p id="Home" href="">Collections</p></li>
-        <li><p id="Add-Shoes" href="" >Add Shoes</p></li>
+        <li><p href="" id="Add-Shoes">Add Shoes</p></li>
         <li><p href="">Women</p></li>
         <li><p href="">About</p></li>
         <li><p href="">Contact</p></li>
@@ -29,18 +29,57 @@
   </nav>
   <hr id="line">
   <article>
-    <div id="grid-of-shoes">
-      
-        <!-- <div class="shoes" id="shoe1">
-           
+    <div id="database-form">
+        <h1>Adding shoes to the database</h1>
+        <div class="input-container">
+          <label for="brandString-input">Shoe brand</label>
+          <input type="text" id="brandString-input"/>
         </div>
-        <div class="shoes "id="shoe2"></div>
-        <div class= "shoes" id="shoe3"></div>
-        <div class = "shoes" id="shoe4"></div>
-        <div class ="shoes" id="shoe5"></div>
-        <div class = "shoes" id="shoe6"></div> -->
-    </div>
-    
+        <div class="input-container">
+          <label for="priceString-input">Shoe price</label>
+          <input type="number" id="priceString-input"/>
+        </div>
+        <div class="input-container">
+          <label for="desString-input">Shoe description</label>
+          <input type="text" id="desString-input"/>
+        </div>
+        <div class="input-container">
+          <label for= "image-input">Enter image URL</label>
+          <input type="text" id="image-input"/>
+        </div>
+        <div class="input-container">
+          <select name="stock" id="stock-bool">
+              <option value=true>In Stock</option>
+              <option value=false>Out of Stock</option>
+          </select>
+        </div>
+        <button id="submit-button">Create</button>
+      </div>
   </article>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
