@@ -26,7 +26,7 @@ mongoose.connection.once('open', ()=> {
 app.post('/create_shoes', async (req, res) =>{
     //what ever information we get from the body will be saved to individual variables.
     //destructuring remember the variables must match the index.js file to create/read new model variables to send to MongoDB
-    const {brand: brand, price: price, description: description, image: img, stock: stock} = req.body;
+    const {brand: brand, price: price, description: description, image: img, product: product, stock: stock} = req.body;
 
     //create an object to act as a JSON document to send to the database. we will save it to the returnedValue
     //your going to create an object to send to the database based off of the object you posted to the route. the route will send the object to mongoose aka: fruit.js and verify that it can be sent to the database. so making
@@ -36,6 +36,7 @@ app.post('/create_shoes', async (req, res) =>{
         price,
         description,
         img,
+        product,
         stock
     })
 
@@ -57,6 +58,18 @@ app.get('/get_theShoe_data', async (req, res) => {
    
     
 
+})
+//get specific shoe data using a parameter
+//when testing the server, ake sure you ctrl c and restart it again sometimes that helps
+app.get('/productPage/:id', async (req, res) => {
+    let id= req.params.id
+    // console.log(JSON.stringify(id))
+
+   let response = await shoes.findOne({"_id":id});;
+
+    // let response = await shoes.find({_id : JSON.stringify(id)});
+    // console.log(response)
+    res.send(response)
 })
 
 app.listen(5000,function (){

@@ -14,6 +14,7 @@ submitButton.addEventListener('click', async () =>{
     let price = +document.getElementById('priceString-input').value;
     let description = document.getElementById('desString-input').value;
     let image = document.getElementById('image-input').value
+    let product = document.getElementById('product-input').value
     let stock = document.getElementById('stock-bool').value === "true" ? true : false;
 
     const shoe = {
@@ -21,6 +22,7 @@ submitButton.addEventListener('click', async () =>{
         price,
         description,
         image,
+        product,
         stock
     }
 
