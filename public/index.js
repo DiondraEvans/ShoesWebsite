@@ -149,7 +149,7 @@ button.addEventListener('click', async() =>{
               
             }
             //a condition to test that means if user types all or all cars, then put every object in the database in a div to display on the page
-            else if (searchInput.toLowerCase() == "all" || searchInput.toLowerCase() == "all cars"){
+            else if (searchInput.toLowerCase() == "all" || searchInput.toLowerCase() == "all shoes"){
                 let divBox = document.createElement('div');
                 divBox.style.width ="100%"
                 divBox.style.display ="flex"

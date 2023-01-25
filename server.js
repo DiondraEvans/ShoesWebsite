@@ -1,6 +1,8 @@
 //require all documents first
 const express = require ('express');
 const mongoose = require('mongoose');
+
+ 
 require('dotenv').config()
 
 //have a create route, create data in mongoDB
@@ -23,10 +25,11 @@ mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: 
 mongoose.connection.once('open', ()=> {
     console.log('connected to mongo');
 });
+
 app.post('/create_shoes', async (req, res) =>{
     //what ever information we get from the body will be saved to individual variables.
     //destructuring remember the variables must match the index.js file to create/read new model variables to send to MongoDB
-    const {brand: brand, price: price, description: description, image: img, product: product, stock: stock} = req.body;
+    const {id: id, brand: brand, price: price, description: description, image: img, product: product, stock: stock} = req.body;
 
     //create an object to act as a JSON document to send to the database. we will save it to the returnedValue
     //your going to create an object to send to the database based off of the object you posted to the route. the route will send the object to mongoose aka: fruit.js and verify that it can be sent to the database. so making
@@ -39,7 +42,7 @@ app.post('/create_shoes', async (req, res) =>{
         product,
         stock
     })
-
+    console.log(brand)
     console.log(returnedValue);
     if (returnedValue) {
         console.log("upload complete");
@@ -64,7 +67,7 @@ app.get('/get_theShoe_data', async (req, res) => {
 app.get('/productPage/:id', async (req, res) => {
     let id= req.params.id
     // console.log(JSON.stringify(id))
-
+   
    let response = await shoes.findOne({"_id":id});;
 
     // let response = await shoes.find({_id : JSON.stringify(id)});
@@ -72,6 +75,27 @@ app.get('/productPage/:id', async (req, res) => {
     res.send(response)
 })
 
+
+app.put('/update_shoe', async (req, res) => {
+    let id = req.body.id
+    let brand = req.body.brand
+    let myData = {brand: brand};
+
+    let response = await shoes.findByIdAndUpdate(id, myData, {new:true});
+    console.log(response);
+    res.send(response);
+})
+app.delete('/delete_shoe/:variable', async (req, res) =>{
+    let id = req.params.variable
+   
+    let response = await shoes.deleteOne({_id: id});
+
+   console.log(response);
+
+   res.send({data: `deleted ${response.deletedCount} items.`})
+})
+
 app.listen(5000,function (){
     console.log('listening on port');
 });
+

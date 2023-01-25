@@ -49,11 +49,11 @@ article{
 }
 #database-form{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content:space-between;
     align-items: center;
     border: 2px double #ff7d1b;
-    width: 500px;
+    width: 1045px;
     height: 500px;
     margin: 65px 0 0 20px;
     border-radius: 10px;
@@ -72,4 +72,23 @@ article{
     border-radius: 10px;
     width: 40%;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+#adding-shoes{
+    border: 1px solid black;
+}
+select{
+    width: 400px;
+    height: 50px;
+    line-height: 50px;
+  -webkit-appearance: menulist-button;  
+  -moz-appearance:none;
+}
+option{
+    display: block;
+    background-color: white ;
+    color:#ff7d1b;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+  -webkit-appearance: menulist-button;  
 }

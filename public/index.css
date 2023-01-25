@@ -41,6 +41,21 @@ nav{
     width: 67%;
     border-top: 1px solid lightgrey;
 }
+section{
+    display: flex;
+    justify-content: center;
+}
+#site-message{
+    z-index: 2;
+    position: absolute;
+    color: #ff7e1bf9;
+    font-size: 150px;
+}
+#heroImg{
+    width: 100vw;
+    height: 500px;
+    z-index: 0;
+}
 article{
     display: flex;
     flex-direction: row;
@@ -52,7 +67,9 @@ article{
     grid-template-columns: 300px 300px 300px;
     grid-template-rows: 1fr 1fr;
     grid-gap: 25px;
-    margin-top: 90px;
+    position: absolute;
+    top: 450px;
+    z-index: 7;
 }
 #grid-of-shoes div{
     width: 300px;

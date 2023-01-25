@@ -30,34 +30,73 @@
   <hr id="line">
   <article>
     <div id="database-form">
-        <h1>Adding shoes to the database</h1>
+        <div id="adding-shoes">
+          <h1>Adding shoes to the database</h1>
+          <div class="input-container">
+            <label for="brandString-input">Shoe brand</label>
+            <input type="text" id="brandString-input"/>
+          </div>
+          <div class="input-container">
+            <label for="priceString-input">Shoe price</label>
+            <input type="number" id="priceString-input"/>
+          </div>
+          <div class="input-container">
+            <label for="desString-input">Shoe description</label>
+            <input type="text" id="desString-input"/>
+          </div>
+          <div class="input-container">
+            <label for= "image-input">Enter image URL</label>
+            <input type="text" id="image-input"/>
+          </div>
+          <div class="input-container">
+            <label for= "product-input">Enter product title of shoe</label>
+            <input type="text" id="product-input"/>
+          </div>
+          <div class="input-container">
+            <select name="stock" id="stock-bool">
+                <option value=true>In Stock</option>
+                <option value=false>Out of Stock</option>
+            </select>
+          </div>
+          <button id="submit-button">Create</button>
+        
+        </div>
+      <div id="updating-shoe">
+        <h1>Updating shoes to the database</h1>
+        <div class="input-container">
+          <select name ="select-shoe" id="shoe-selector">
+            
+          </select>
+        </div>
         <div class="input-container">
           <label for="brandString-input">Shoe brand</label>
-          <input type="text" id="brandString-input"/>
+          <input type="text" id="updatebrandString-input"/>
         </div>
         <div class="input-container">
           <label for="priceString-input">Shoe price</label>
-          <input type="number" id="priceString-input"/>
+          <input type="number" id="updatepriceString-input"/>
         </div>
         <div class="input-container">
           <label for="desString-input">Shoe description</label>
-          <input type="text" id="desString-input"/>
+          <input type="text" id="updatedesString-input"/>
         </div>
         <div class="input-container">
           <label for= "image-input">Enter image URL</label>
-          <input type="text" id="image-input"/>
+          <input type="text" id="updateimage-input"/>
         </div>
         <div class="input-container">
           <label for= "product-input">Enter product title of shoe</label>
-          <input type="text" id="product-input"/>
+          <input type="text" id="updateproduct-input"/>
         </div>
         <div class="input-container">
-          <select name="stock" id="stock-bool">
+          <select name="stock" id="updatestock-bool">
               <option value=true>In Stock</option>
               <option value=false>Out of Stock</option>
           </select>
         </div>
-        <button id="submit-button">Create</button>
+        <button id="update-button">update button</button>
+        <button id="delete-button">delete button</button>
+      </div>
       </div>
   </article>
 </body>

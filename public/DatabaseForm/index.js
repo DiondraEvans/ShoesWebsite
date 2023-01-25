@@ -7,6 +7,8 @@ databaseLink.addEventListener('click', ()  => {
    window.location.href ="./DatabaseForm/index.html"
 })
 
+let arrayOfData = []
+console.log(arrayOfData)
 
 let submitButton = document.getElementById('submit-button');
 submitButton.addEventListener('click', async () =>{
@@ -35,3 +37,99 @@ submitButton.addEventListener('click', async () =>{
     })
 })
 
+
+const getDataForDropdown = async () => {
+    let data = await fetch("/get_theShoe_data");
+    data.json().then((parsedData) => {
+        console.log(parsedData)
+       
+            parsedData.forEach((object) => {
+                let divbox = document.createElement('div')
+                
+                let product = document.createElement('p')
+                product.innerHTML = object.product;
+                divbox.appendChild(product)
+                let price = document.createElement('p')
+                price.innerHTML = ` $${object.price}`;
+                divbox.appendChild(price)
+                
+                let option = document.createElement('option')
+                var objectId = object._id
+                option.setAttribute('id', object._id);
+                option.setAttribute('value', object._id);
+          
+                // option.setAttribute('id', objectId)
+                option.appendChild(divbox)
+                let select = document.getElementById('shoe-selector')
+                select.appendChild(option);
+                
+                arrayOfData.push(objectId)
+                    
+            })
+    })
+}
+getDataForDropdown()
+
+
+
+let updateButton = document.getElementById('update-button')
+updateButton.addEventListener('click', async()  => {
+    for(let i = 0; i< arrayOfData.length; i++){
+        if(document.getElementById(arrayOfData[i]).selected == true){
+        let id = (arrayOfData[i]);
+        
+        let brand = document.getElementById('updatebrandString-input').value;
+    
+        let price = +document.getElementById('updatepriceString-input').value;
+        let description = document.getElementById('updatedesString-input').value;
+        let image = document.getElementById('updateimage-input').value
+        let product = document.getElementById('updateproduct-input').value
+        let stock = document.getElementById('updatestock-bool').value === "true" ? true : false;
+        console.log(id);
+        console.log(stock);
+        
+        let response = await fetch(`http://localhost:5000/update_shoe`,
+        // example of code to update fruit
+        {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: id, brand: brand })
+        }
+        );
+
+        let finalData = await response.json();
+
+        console.log(finalData);
+        }
+    }
+})
+
+let deleteButton = document.getElementById('delete-button')
+deleteButton.addEventListener('click', async()  => {
+    for(let i = 0; i< arrayOfData.length; i++){
+        if(document.getElementById(arrayOfData[i]).selected == true){
+        let id = (arrayOfData[i]);
+        
+        let brand = document.getElementById('updatebrandString-input').value;
+    
+        let price = +document.getElementById('updatepriceString-input').value;
+        let description = document.getElementById('updatedesString-input').value;
+        let image = document.getElementById('updateimage-input').value
+        let product = document.getElementById('updateproduct-input').value
+        let stock = document.getElementById('updatestock-bool').value === "true" ? true : false;
+        console.log(id);
+        console.log(stock);
+        
+        let response = await fetch(`http://localhost:5000/delete_shoe/${id}`,
+        // example of code to update fruit
+        {
+            method: 'DELETE'
+        }
+        );
+
+        let finalData = await response.json();
+
+        console.log(finalData);
+        }
+    }
+})
