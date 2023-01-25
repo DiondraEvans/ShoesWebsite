@@ -29,7 +29,7 @@ mongoose.connection.once('open', ()=> {
 app.post('/create_shoes', async (req, res) =>{
     //what ever information we get from the body will be saved to individual variables.
     //destructuring remember the variables must match the index.js file to create/read new model variables to send to MongoDB
-    const {id: id, brand: brand, price: price, description: description, image: img, product: product, stock: stock} = req.body;
+    const {id: id, brand: brand, price: price, description: description, image: img, image2: img2, image3: img3, image4: img4, product: product, stock: stock} = req.body;
 
     //create an object to act as a JSON document to send to the database. we will save it to the returnedValue
     //your going to create an object to send to the database based off of the object you posted to the route. the route will send the object to mongoose aka: fruit.js and verify that it can be sent to the database. so making
@@ -39,6 +39,9 @@ app.post('/create_shoes', async (req, res) =>{
         price,
         description,
         img,
+        img2,
+        img3,
+        img4,
         product,
         stock
     })
@@ -79,7 +82,25 @@ app.get('/productPage/:id', async (req, res) => {
 app.put('/update_shoe', async (req, res) => {
     let id = req.body.id
     let brand = req.body.brand
-    let myData = {brand: brand};
+    let price = req.body.price
+    let description = req.body.description
+    let image = req.body.image
+    let image2 = req.body.image2
+    let image3 = req.body.image3
+    let image4 = req.body.image4
+    let product = req.body.product
+    let stock = req.body.stock
+    let myData = {
+        brand: brand, 
+        price: price, 
+        description: description, 
+        img: image, 
+        img2: image2,
+        img3: image3,
+        img4: image4,
+        product: product,
+        stock: stock
+    };
 
     let response = await shoes.findByIdAndUpdate(id, myData, {new:true});
     console.log(response);

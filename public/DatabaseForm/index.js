@@ -16,6 +16,9 @@ submitButton.addEventListener('click', async () =>{
     let price = +document.getElementById('priceString-input').value;
     let description = document.getElementById('desString-input').value;
     let image = document.getElementById('image-input').value
+    let image2 = document.getElementById('image-input2').value
+    let image3 = document.getElementById('image-input3').value
+    let image4 = document.getElementById('image-input4').value
     let product = document.getElementById('product-input').value
     let stock = document.getElementById('stock-bool').value === "true" ? true : false;
 
@@ -24,6 +27,9 @@ submitButton.addEventListener('click', async () =>{
         price,
         description,
         image,
+        image2,
+        image3,
+        image4,
         product,
         stock
     }
@@ -83,6 +89,9 @@ updateButton.addEventListener('click', async()  => {
         let price = +document.getElementById('updatepriceString-input').value;
         let description = document.getElementById('updatedesString-input').value;
         let image = document.getElementById('updateimage-input').value
+        let image2 = document.getElementById('updateimage-input2').value
+        let image3 = document.getElementById('updateimage-input3').value
+        let image4 = document.getElementById('updateimage-input4').value
         let product = document.getElementById('updateproduct-input').value
         let stock = document.getElementById('updatestock-bool').value === "true" ? true : false;
         console.log(id);
@@ -93,7 +102,18 @@ updateButton.addEventListener('click', async()  => {
         {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: id, brand: brand })
+            body: JSON.stringify({ 
+                id: id, 
+                brand: brand, 
+                price: price, 
+                description: description,
+                image: image,
+                image2: image2,
+                image3: image3,
+                image4: image4,
+                product: product,
+                stock: stock
+            })
         }
         );
 

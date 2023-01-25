@@ -26,6 +26,13 @@ databaseLink.addEventListener('click', ()  => {
    window.location.href ="../DatabaseForm/index.html"
 })
 
+let image = document.getElementById('img-1')
+let image1a = document.getElementById('img-1a')
+let image2 = document.getElementById('img-2')
+let image3 = document.getElementById('img-3')
+let image4 = document.getElementById('img-4')
+
+
 
 
 //connecting the js to server using fetch to send a model to the server
@@ -57,8 +64,35 @@ const getData = async() =>{
         let image = document.getElementById('img-1')
         image.src = parsedData.img
 
+        let image1a = document.getElementById('img-1a')
+        image1a.src = parsedData.img
+
+        let image2 = document.getElementById('img-2')
+        image2.src = parsedData.img2
+
+        let image3 = document.getElementById('img-3')
+        image3.src = parsedData.img3
+
+        let image4 = document.getElementById('img-4')
+        image4.src = parsedData.img4
+
         let shoeProductTitle = document.getElementById('shoe-product-title')
         shoeProductTitle.innerHTML = parsedData.product
 
 }
 getData();
+
+let photoArray = [image1a, image2,image3, image4];
+
+photoArray.forEach((item) =>{
+    
+        item.addEventListener('click', () =>{
+           
+            image.src = item.src
+     
+        })
+
+     
+
+        
+})
