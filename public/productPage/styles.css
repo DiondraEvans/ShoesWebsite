@@ -37,6 +37,9 @@ nav{
     width: 30px;
     height: 30px;
 }
+#menu li>p:hover{
+    color:#ff7d1b;
+}
 #line{
     width: 67%;
     border-top: 1px solid lightgrey;

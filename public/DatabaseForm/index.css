@@ -43,26 +43,46 @@ nav{
 }
 article{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+article>h1{
+    color: black;
 }
 #database-form{
     display: flex;
     flex-direction: row;
     justify-content:space-between;
     align-items: center;
-    border: 2px double #ff7d1b;
-    width: 1045px;
-    height: 500px;
+  
+    width: 1145px;
+    height: 600px;
     margin: 65px 0 0 20px;
     border-radius: 10px;
     padding: 20px;
-    background-color: #ff7d1b;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    background-color: white;
+    box-shadow: rgb(13 0 255 / 30%) 0px 2px 20px 4px
 }
-#database-form h1{
-    color: white;
+#database-form label, h1{
+    color: black;
+}
+#adding-shoes{
+    padding: 20px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+#submit-button:hover{
+    padding: 10px;
+    color: #ff7d1b;
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+    width: 41%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 #submit-button{
     padding: 10px;
@@ -73,9 +93,55 @@ article{
     width: 40%;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-#adding-shoes{
-    border: 1px solid black;
+#updating-shoes{
+    padding: 20px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
+#update-button{
+    padding: 10px;
+    color: #ff7d1b;
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+    width: 40%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+#update-button:hover{
+    padding: 10px;
+    color: #ff7d1b;
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+    width: 41%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+#delete-button{
+    padding: 10px;
+    color: #ffffff;
+    background-color: #e60000;
+    border: 0;
+    border-radius: 10px;
+    width: 40%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+#delete-button:hover{
+    padding: 10px;
+    color: #ffffff;
+    background-color: #e60000;
+    border: 0;
+    border-radius: 10px;
+    width: 41%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+#menu li>p:hover{
+    color:#ff7d1b;
+}
+
 select{
     width: 400px;
     height: 50px;
@@ -91,4 +157,7 @@ option{
     height: 50px;
     line-height: 50px;
   -webkit-appearance: menulist-button;  
+}
+input:focus{
+    background-color:#ff7e1b48;
 }

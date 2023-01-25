@@ -37,6 +37,9 @@ nav{
     width: 30px;
     height: 30px;
 }
+#menu li>p:hover{
+    color:#ff7d1b;
+}
 #line{
     width: 67%;
     border-top: 1px solid lightgrey;
@@ -73,16 +76,18 @@ article{
 }
 #grid-of-shoes div{
     width: 300px;
-    height: 400px;
     box-shadow: rgba(221, 126, 2, 0.378) 0px 4px 12px;
     background-color: white;
     padding-top: 25px;
+    display: flex;
+    flex: 1;
 }
 #grid-of-shoes div:hover{
     width: 300px;
-    height: 400px;
     box-shadow: rgba(185, 185, 185, 0.237) 0px 4px 12px;
     background-color: #ff7e1b8b;
     padding-top: 25px;
+    display: flex;
+    flex: 1;
 }
 
