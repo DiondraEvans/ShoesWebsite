@@ -79,6 +79,52 @@ const getData = async() =>{
         let shoeProductTitle = document.getElementById('shoe-product-title')
         shoeProductTitle.innerHTML = parsedData.product
 
+
+        //first opening the page you be met with this isf product is in or out of stock
+        let invAmountDisplay = document.getElementById('invAmountDisplay')
+        if (parsedData.invAmount <= 0){
+            let addToCartbox = document.getElementById('add-sub-cart')
+            addToCartbox.innerHTML = "OUT OF STOCK"
+            invAmountDisplay.textContent = ""
+        } else{
+            invAmountDisplay.textContent = `${parsedData.invAmount} remaining`
+        }
+       
+        let amountCounter = document.getElementById('amtCounter')
+        
+        let firstButton = document.getElementById('first-btn')
+        let sndButton = document.getElementById('snd-btn')
+        //increasing the amount Counter 
+       amountCounter.textContent = 0
+       console.log(parsedData.invAmount)
+        sndButton.addEventListener('click', () =>{
+            if(amountCounter.textContent <= parsedData.invAmount+1){
+                
+                amountCounter.textContent++
+                parsedData.invAmount--
+                console.log(parsedData.invAmount)
+                invAmountDisplay.textContent = `${parsedData.invAmount} remaining`
+            }else if (parsedData.invAmount <= 0){
+                invAmountDisplay.textContent = "0 remaining"
+            } 
+        })
+         //decreasing the amount counter 
+        firstButton.addEventListener('click', () =>{
+            if(amountCounter.textContent > 0){
+            amountCounter.textContent--
+            parsedData.invAmount++
+            console.log(parsedData.invAmount)
+            invAmountDisplay.textContent = `${parsedData.invAmount} remaining`
+            }
+            
+            else if(amountCounter.textContent <= 0){
+                invAmountDisplay.textContent = ` ${parsedData.invAmount} remaining`
+                amountCounter.textContent = 0;
+                
+            }
+        })
+       
+
 }
 getData();
 

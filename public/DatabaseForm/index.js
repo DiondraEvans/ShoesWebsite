@@ -20,7 +20,7 @@ submitButton.addEventListener('click', async () =>{
     let image3 = document.getElementById('image-input3').value
     let image4 = document.getElementById('image-input4').value
     let product = document.getElementById('product-input').value
-    let stock = document.getElementById('stock-bool').value === "true" ? true : false;
+    let invAmount = document.getElementById('inv-input').value
 
     const shoe = {
         brand,
@@ -31,7 +31,7 @@ submitButton.addEventListener('click', async () =>{
         image3,
         image4,
         product,
-        stock
+        invAmount
     }
 
     let response = await fetch('http://localhost:5000/create_shoes', {
@@ -41,8 +41,13 @@ submitButton.addEventListener('click', async () =>{
             },
             body: JSON.stringify(shoe)
     })
+        
+      
+         // now redirecting back to the home page
+        // window.location.href ="../index.html"
+     
+     
 })
-
 
 const getDataForDropdown = async () => {
     let data = await fetch("/get_theShoe_data");
@@ -93,7 +98,7 @@ updateButton.addEventListener('click', async()  => {
         let image3 = document.getElementById('updateimage-input3').value
         let image4 = document.getElementById('updateimage-input4').value
         let product = document.getElementById('updateproduct-input').value
-        let stock = document.getElementById('updatestock-bool').value === "true" ? true : false;
+        let invAmount = document.getElementById('updateinv-input').value
         console.log(id);
         console.log(stock);
         
@@ -112,14 +117,16 @@ updateButton.addEventListener('click', async()  => {
                 image3: image3,
                 image4: image4,
                 product: product,
-                stock: stock
+                invAmount: invAmount
             })
         }
         );
-
-        let finalData = await response.json();
-
-        console.log(finalData);
+        //using parsed data from the variable of the post request to get the id needed to 
+        //pass it to the url as a query to direct me to the product page
+        response.json().then((parsedData) =>{
+            window.location.href =`../productpage?idInQuery=${parsedData._id}`
+        })
+        
         }
     }
 })
@@ -130,16 +137,14 @@ deleteButton.addEventListener('click', async()  => {
         if(document.getElementById(arrayOfData[i]).selected == true){
         let id = (arrayOfData[i]);
         
-        let brand = document.getElementById('updatebrandString-input').value;
+        // let brand = document.getElementById('updatebrandString-input').value;
     
-        let price = +document.getElementById('updatepriceString-input').value;
-        let description = document.getElementById('updatedesString-input').value;
-        let image = document.getElementById('updateimage-input').value
-        let product = document.getElementById('updateproduct-input').value
-        let stock = document.getElementById('updatestock-bool').value === "true" ? true : false;
+        // let price = +document.getElementById('updatepriceString-input').value;
+        // let description = document.getElementById('updatedesString-input').value;
+        // let image = document.getElementById('updateimage-input').value
+        // let product = document.getElementById('updateproduct-input').value
+        // let invAmount = document.getElementById('updateinv-input').value
         console.log(id);
-        console.log(stock);
-        
         let response = await fetch(`http://localhost:5000/delete_shoe/${id}`,
         // example of code to update fruit
         {
@@ -150,6 +155,8 @@ deleteButton.addEventListener('click', async()  => {
         let finalData = await response.json();
 
         console.log(finalData);
+        // now redirecting back to the home page
+        // window.location.href ="../index.html"
         }
     }
 })

@@ -57,10 +57,10 @@ const getData = async () => {
 
                     
                     let stock = document.createElement('p')
-                     if(object.stock == true){
+                     if(object.invAmount > 0){
                             stock.innerHTML = "In Stock"
                         } else{
-                            stock.innerHTML = "Out of Stock"
+                            stock.innerHTML = `Out of Stock`
                         }
                     divBox.appendChild(stock);
                     display.appendChild(divBox)

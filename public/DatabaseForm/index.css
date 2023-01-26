@@ -47,33 +47,33 @@ article{
     justify-content: center;
     align-items: center;
 }
-article>h1{
-    color: black;
-}
+
+
+
 #database-form{
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
-  
     width: 1145px;
     height: 600px;
     margin: 65px 0 0 20px;
     border-radius: 10px;
-    padding: 20px;
     background-color: white;
-    box-shadow: rgb(13 0 255 / 30%) 0px 2px 20px 4px
+    box-shadow: rgb(125 125 125 / 30%) 0px 2px 20px 4px;
 }
-#database-form label, h1{
-    color: black;
-}
+
 #adding-shoes{
     padding: 20px;
-    height: 600px;
+    height: 560px;
     display: flex;
     flex-direction: column;
+    width: 553px;
     justify-content: space-between;
+    border-radius: 10px;
     align-items: center;
+    background-color: #ff7e1b;
+    color: white;
 }
 #submit-button:hover{
     padding: 10px;
@@ -95,7 +95,7 @@ article>h1{
 }
 #updating-shoes{
     padding: 20px;
-    height: 600px;
+    height: 553px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

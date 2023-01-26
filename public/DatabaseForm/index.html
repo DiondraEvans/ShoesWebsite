@@ -64,19 +64,17 @@
           <input type="text" id="image-input4"/>
         </div>
         
-          <div class="input-container">
-            <label for= "product-input">Enter product title of shoe</label>
-            <input type="text" id="product-input"/>
-          </div>
-          <div class="input-container">
-            <select name="stock" id="stock-bool">
-                <option value=true>In Stock</option>
-                <option value=false>Out of Stock</option>
-            </select>
-          </div>
-          <button id="submit-button">Create</button>
-        
+        <div class="input-container">
+          <label for= "product-input">Enter product title of shoe</label>
+          <input type="text" id="product-input"/>
         </div>
+        <div class="input-container">
+          <label for= "inv-input">Inventory amount</label>
+          <input type="number" id="inv-input" placeholder="How many is in stock?"/>
+        </div>
+        <button id="submit-button">Create</button>
+      
+    </div>  
       <div id="updating-shoes">
         <h1>Updating/Deleting shoes in database</h1>
         <div class="input-container">
@@ -113,17 +111,14 @@
           <label for= "image-input">Enter a fourth image URL</label>
           <input type="text" id="updateimage-input4"/>
         </div>
-
-
         <div class="input-container">
           <label for= "product-input">Enter product title of shoe</label>
           <input type="text" id="updateproduct-input"/>
         </div>
+        
         <div class="input-container">
-          <select name="stock" id="updatestock-bool">
-              <option value=true>In Stock</option>
-              <option value=false>Out of Stock</option>
-          </select>
+          <label for= "updateinv-input">Inventory amount</label>
+          <input type="number" id="updateinv-input" placeholder="How many is in stock?"/>
         </div>
         <button id="update-button">update button</button>
         <button id="delete-button">delete button</button>

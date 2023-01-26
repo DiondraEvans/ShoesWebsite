@@ -9,7 +9,7 @@ const shoeSchema = new mongoose.Schema({
     img3: {type: String},
     img4: {type: String},
     product: {type: String},
-    stock: {type: Boolean, required: true},
+    invAmount: {type: Number, required: true},
     
 });
 

@@ -158,10 +158,16 @@ article img{
     border: none;
     padding: 10px;
 }
+#amtCounter{
+    text-align: center;
+}
 #snd-btn{
     background-color: transparent;
     border: none;
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #cart-btn{
     background-color: #ff7d1b;
