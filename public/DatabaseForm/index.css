@@ -22,6 +22,10 @@ nav{
     justify-content: space-between;
     width: 80px;
 }
+#cart{
+    width: 25px;
+    height: 23px;
+}
 #menu{
     display: flex;
     flex-direction: row;
@@ -74,6 +78,18 @@ article{
     align-items: center;
     background-color: #ff7e1b;
     color: white;
+}
+#imageUrl1::before{
+    content:"🔗"
+}
+#imageUrl2::before{
+    content:"🔗"
+}
+#imageUrl3::before{
+    content:"🔗"
+}
+#imageUrl4::before{
+    content:"🔗"
 }
 #submit-button:hover{
     padding: 10px;

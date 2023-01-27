@@ -11,7 +11,7 @@ databaseLink.addEventListener('click', ()  => {
 })
 
 let display = document.getElementById("grid-of-shoes")
-let button = document.getElementById("button")
+let button = document.getElementById("search-button")
 const getData = async () => {
     const params = new Proxy(new URLSearchParams(window.location.search), {
         get: (searchParams, prop) => searchParams.get(prop),
@@ -100,7 +100,8 @@ button.addEventListener('click', async() =>{
         //for each object in the parsed data, if it matches the user input then display the name in the display box.
         parsedData.forEach((object) =>{
             //filter for price of name
-            if(object.brand.toLowerCase() == searchInput.toLowerCase() || object.price == searchInput){
+            //a condition to test that means if user types all or all shoes, then put every object in the database in a div to display on the page
+            if(object.brand.toLowerCase() == searchInput.toLowerCase() || object.price == searchInput || searchInput.toLowerCase() == "all" || searchInput.toLowerCase() == "all shoes"){
                 let divBox = document.createElement('div');
                 divBox.style.width ="100%"
                 divBox.style.display ="flex"
@@ -133,10 +134,10 @@ button.addEventListener('click', async() =>{
 
                     
                     let stock = document.createElement('p')
-                     if(object.stock == true){
+                     if(object.invAmount > 0){
                             stock.innerHTML = "In Stock"
                         } else{
-                            stock.innerHTML = "Out of Stock"
+                            stock.innerHTML = `Out of Stock`
                         }
                     divBox.appendChild(stock);
                     display.appendChild(divBox)
@@ -148,8 +149,22 @@ button.addEventListener('click', async() =>{
                     
               
             }
-            //a condition to test that means if user types all or all cars, then put every object in the database in a div to display on the page
-            else if (searchInput.toLowerCase() == "all" || searchInput.toLowerCase() == "all shoes"){
+        })        
+    })    
+})
+
+let mid = document.getElementById('mid')
+mid.addEventListener("click", async() =>{
+     display.innerHTML ="";
+    let data = await fetch("/get_theShoe_data");
+
+    //we need to parse the data from the object so that it is readable. I used the then function
+    data.json().then((parsedData) => {
+
+        //for each object in the parsed data, if it matches the user input then display the name in the display box.
+        parsedData.forEach((object) =>{
+            //filter for price of name
+            if(object.price >= 200){
                 let divBox = document.createElement('div');
                 divBox.style.width ="100%"
                 divBox.style.display ="flex"
@@ -182,10 +197,10 @@ button.addEventListener('click', async() =>{
 
                     
                     let stock = document.createElement('p')
-                     if(object.stock == true){
+                     if(object.invAmount > 0){
                             stock.innerHTML = "In Stock"
                         } else{
-                            stock.innerHTML = "Out of Stock"
+                            stock.innerHTML = `Out of Stock`
                         }
                     divBox.appendChild(stock);
                     display.appendChild(divBox)
@@ -195,206 +210,132 @@ button.addEventListener('click', async() =>{
                         window.location.href =`../productpage?idInQuery=${event.target.id}`
                      })
                     
-
-            }    
-    
+              
+            }
         })        
     })
-   
-          
 })
+let mid2 = document.getElementById('mid2')
+mid2.addEventListener('click', async() =>{
+     display.innerHTML ="";
+    let data = await fetch("/get_theShoe_data");
 
+    //we need to parse the data from the object so that it is readable. I used the then function
+    data.json().then((parsedData) => {
 
-// divBox.addEventListener('click', ()  => {
-//     window.location.href ="./DatabaseForm/index.html"
-//  })
-// //for each box distribute an object brand name
-      // access parsed data object at index one an dhand code it and append to box
-   
+        //for each object in the parsed data, if it matches the user input then display the name in the display box.
+        parsedData.forEach((object) =>{
+            //filter for price of name
+            if(object.price <= 199){
+                let divBox = document.createElement('div');
+                divBox.style.width ="100%"
+                divBox.style.display ="flex"
+                divBox.style.flexDirection ="column"
+                divBox.style.justifyContent ="center"
+                divBox.style.alignItems ="center"
+                let objectId = object._id
+                divBox.setAttribute('id',objectId);
+               
+                
+                let image = document.createElement('img');
+                    image.src = object.img;
+                    image.style.borderRadius ="10px";
+                    image.style.width ="40%";
+                    divBox.appendChild(image);
+                
+                    let brand = document.createElement('h3')
+                    brand.innerHTML = object.brand;
+                    divBox.appendChild(brand);
 
+                    let price  = document.createElement('p')
+                    price.innerHTML = `$${object.price}`;
+                    divBox.appendChild(price);
+                    
+                    let description = document.createElement('p')
+                    description.innerHTML = ` ${object.description}`;
+                    description.style.width="70%";
+                    description.style.textAlign ="center";
+                    divBox.appendChild(description);
 
-        // for(let i = 0; i < parsedData.length; i++){
-        //     if(parsedData[i] == parsedData[0]){
-        //         for(let i = 0; i < arrayOfShoes.length; i++){
-        //             if(arrayOfShoes[i] == arrayOfShoes[0]){
-        //                 let image = document.createElement('img')
-        //                 image.src = parsedData[i].img;
-        //                 image.style.borderRadius ="10px";
-        //                 image.style.width ="60%";
-        //                 arrayOfShoes[i].appendChild(image)
-        //                 let brand = document.createElement('p')
-        //                 brand.style.fontWeight="bold";
-        //                 brand.innerHTML = parsedData[i].brand
-        //                 arrayOfShoes[i].appendChild(brand)
-        //                 let price = document.createElement('p');
-        //                 price.innerHTML = `$${parsedData[i].price}`
-        //                 arrayOfShoes[i].appendChild(price)
-        //                 let description = document.createElement('p');
-        //                 description.innerHTML = parsedData[i].description
-                       
-        //                 arrayOfShoes[i].appendChild(description)
-        //                 let stock = document.createElement('p')
-        //                 if( parsedData[i].stock == true){
-        //                     stock.innerHTML = "In Stock"
-        //                 } else{
-        //                     stock.innerHTML = "Out of Stock"
-        //                 }
-        //                 arrayOfShoes[i].appendChild(stock)
-        //                 }
-        //         }
-                
-        //     }
-        //     else if(parsedData[i] == parsedData[1]){
-        //         for(let i = 0; i < arrayOfShoes.length; i++){
-        //             if(arrayOfShoes[i] == arrayOfShoes[1]){
-        //                 let image = document.createElement('img')
-        //                 image.src = parsedData[i].img;
-        //                 image.style.borderRadius ="10px";
-        //                 image.style.width ="60%";
-        //                 arrayOfShoes[i].appendChild(image)
-        //                 let brand = document.createElement('p')
-        //                 brand.style.fontWeight="bold";
-        //                 brand.innerHTML = parsedData[i].brand
-        //                 arrayOfShoes[i].appendChild(brand)
-        //                 let price = document.createElement('p');
-        //                 price.innerHTML = `$${parsedData[i].price}`
-        //                 arrayOfShoes[i].appendChild(price)
-        //                 let description = document.createElement('p');
-        //                 description.innerHTML = parsedData[i].description
-        //                 description.style.width ="90%";
-        //                 arrayOfShoes[i].appendChild(description)
-        //                 let stock = document.createElement('p')
-        //                 if( parsedData[i].stock == true){
-        //                     stock.innerHTML = "In Stock"
-        //                 } else{
-        //                     stock.innerHTML = "Out of Stock"
-        //                 }
-        //                 arrayOfShoes[i].appendChild(stock)
-        //             }
-        //         }
-                
-        //     }
-        //     else if(parsedData[i] == parsedData[2]){
-        //         for(let i = 0; i < arrayOfShoes.length; i++){
-        //             if(arrayOfShoes[i] == arrayOfShoes[2]){
-        //                 let image = document.createElement('img')
-        //                 image.src = parsedData[i].img;
-        //                 image.style.borderRadius ="10px";
-        //                 image.style.width ="60%";
-        //                 arrayOfShoes[i].appendChild(image)
-        //                 let brand = document.createElement('p')
-        //                 brand.style.fontWeight="bold";
-        //                 brand.innerHTML = parsedData[i].brand
-        //                 arrayOfShoes[i].appendChild(brand)
-        //                 let price = document.createElement('p');
-        //                 price.innerHTML = `$${parsedData[i].price}`
-        //                 arrayOfShoes[i].appendChild(price)
-        //                 let description = document.createElement('p');
-        //                 description.innerHTML = parsedData[i].description
-        //                 description.style.width ="70%";
-        //                 arrayOfShoes[i].appendChild(description)
-        //                 let stock = document.createElement('p')
-        //                 if( parsedData[i].stock == true){
-        //                     stock.innerHTML = "In Stock"
-        //                 } else{
-        //                     stock.innerHTML = "Out of Stock"
-        //                 }
-        //                 arrayOfShoes[i].appendChild(stock)
-        //             }
-        //         }
-                
-        //     }
-        //     else if(parsedData[i] == parsedData[3]){
-        //         for(let i = 0; i < arrayOfShoes.length; i++){
-        //             if(arrayOfShoes[i] == arrayOfShoes[3]){
-        //                 let image = document.createElement('img')
-        //                 image.src = parsedData[i].img;
-        //                 image.style.borderRadius ="10px";
-        //                 image.style.width ="30%";
-        //                 arrayOfShoes[i].appendChild(image)
-        //                 let brand = document.createElement('p')
-        //                 brand.style.fontWeight="bold";
-        //                 brand.innerHTML = parsedData[i].brand
-        //                 arrayOfShoes[i].appendChild(brand)
-        //                 let price = document.createElement('p');
-        //                 price.innerHTML = `$${parsedData[i].price}`
-        //                 arrayOfShoes[i].appendChild(price)
-        //                 let description = document.createElement('p');
-        //                 description.innerHTML = parsedData[i].description
-        //                 description.style.width ="70%";
-        //                 arrayOfShoes[i].appendChild(description)
-        //                 let stock = document.createElement('p')
-        //                 if( parsedData[i].stock == true){
-        //                     stock.innerHTML = "In Stock"
-        //                 } else{
-        //                     stock.innerHTML = "Out of Stock"
-        //                 }
-        //                 arrayOfShoes[i].appendChild(stock)
-        //             }
-        //         }
-                
-        //     }
+                    
+                    let stock = document.createElement('p')
+                     if(object.invAmount > 0){
+                            stock.innerHTML = "In Stock"
+                        } else{
+                            stock.innerHTML = `Out of Stock`
+                        }
+                    divBox.appendChild(stock);
+                    display.appendChild(divBox)
+                   
+                    //now once div populates, use their individual ids to go to the product page and fetch data
+                    document.getElementById(objectId).addEventListener('click', (event)  => {
+                        window.location.href =`../productpage?idInQuery=${event.target.id}`
+                     })
+                    
+              
+            }
+        })        
+    })
+})
+let bottom = document.getElementById('bottom')
+bottom.addEventListener('click', async() =>{
+    display.innerHTML ="";
+     let data = await fetch("/get_theShoe_data");
 
-        //     else if(parsedData[i] == parsedData[4]){
-        //         for(let i = 0; i < arrayOfShoes.length; i++){
-        //             if(arrayOfShoes[i] == arrayOfShoes[4]){
-        //                 let image = document.createElement('img')
-        //                 image.src = parsedData[i].img;
-        //                 image.style.borderRadius ="10px";
-        //                 image.style.width ="60%";
-        //                 arrayOfShoes[i].appendChild(image)
-        //                 let brand = document.createElement('p')
-        //                 brand.style.fontWeight="bold";
-        //                 brand.innerHTML = parsedData[i].brand
-        //                 arrayOfShoes[i].appendChild(brand)
-        //                 let price = document.createElement('p');
-        //                 price.innerHTML = `$${parsedData[i].price}`
-        //                 arrayOfShoes[i].appendChild(price)
-        //                 let description = document.createElement('p');
-        //                 description.innerHTML = parsedData[i].description
-        //                 description.style.width ="70%";
-        //                 arrayOfShoes[i].appendChild(description)
-        //                 let stock = document.createElement('p')
-        //                 if( parsedData[i].stock == true){
-        //                     stock.innerHTML = "In Stock"
-        //                 } else{
-        //                     stock.innerHTML = "Out of Stock"
-        //                 }
-        //                 arrayOfShoes[i].appendChild(stock)
-        //             }
-        //         }
-                
-        //     }
-        //     else if(parsedData[i] == parsedData[5]){
-        //         for(let i = 0; i < arrayOfShoes.length; i++){
-        //             if(arrayOfShoes[i] == arrayOfShoes[5]){
-        //                 let image = document.createElement('img')
-        //                 image.src = parsedData[i].img;
-        //                 image.style.borderRadius ="10px";
-        //                 image.style.width ="30%";
-        //                 arrayOfShoes[i].appendChild(image)
-        //                 let brand = document.createElement('p')
-        //                 brand.style.fontWeight="bold";
-        //                 brand.innerHTML = parsedData[i].brand
-        //                 arrayOfShoes[i].appendChild(brand)
-        //                 let price = document.createElement('p');
-        //                 price.innerHTML = `$${parsedData[i].price}`
-        //                 arrayOfShoes[i].appendChild(price)
-        //                 let description = document.createElement('p');
-        //                 description.innerHTML = parsedData[i].description
-        //                 description.style.width ="70%";
-        //                 arrayOfShoes[i].appendChild(description)
-        //                 let stock = document.createElement('p')
-        //                 if( parsedData[i].stock == true){
-        //                     stock.innerHTML = "In Stock"
-        //                 } else{
-        //                     stock.innerHTML = "Out of Stock"
-        //                 }
-        //                 arrayOfShoes[i].appendChild(stock)
-        //             }
-        //         }
-                
-        //     }
+    //we need to parse the data from the object so that it is readable. I used the then function
+    data.json().then((parsedData) => {
 
-        // }
-        
+        //for each object in the parsed data, if it matches the user input then display the name in the display box.
+        parsedData.forEach((object) =>{
+            //filter for price of name
+            if(object.price <= 100){
+                let divBox = document.createElement('div');
+                divBox.style.width ="100%"
+                divBox.style.display ="flex"
+                divBox.style.flexDirection ="column"
+                divBox.style.justifyContent ="center"
+                divBox.style.alignItems ="center"
+                let objectId = object._id
+                divBox.setAttribute('id',objectId);
+               
+                
+                let image = document.createElement('img');
+                    image.src = object.img;
+                    image.style.borderRadius ="10px";
+                    image.style.width ="40%";
+                    divBox.appendChild(image);
+                
+                    let brand = document.createElement('h3')
+                    brand.innerHTML = object.brand;
+                    divBox.appendChild(brand);
+
+                    let price  = document.createElement('p')
+                    price.innerHTML = `$${object.price}`;
+                    divBox.appendChild(price);
+                    
+                    let description = document.createElement('p')
+                    description.innerHTML = ` ${object.description}`;
+                    description.style.width="70%";
+                    description.style.textAlign ="center";
+                    divBox.appendChild(description);
+
+                    
+                    let stock = document.createElement('p')
+                     if(object.invAmount > 0){
+                            stock.innerHTML = "In Stock"
+                        } else{
+                            stock.innerHTML = `Out of Stock`
+                        }
+                    divBox.appendChild(stock);
+                    display.appendChild(divBox)
+                   
+                    //now once div populates, use their individual ids to go to the product page and fetch data
+                    document.getElementById(objectId).addEventListener('click', (event)  => {
+                        window.location.href =`../productpage?idInQuery=${event.target.id}`
+                     })
+                    
+              
+            }
+        })        
+    })
+})

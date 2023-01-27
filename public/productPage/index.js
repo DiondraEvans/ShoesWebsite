@@ -80,7 +80,7 @@ const getData = async() =>{
         shoeProductTitle.innerHTML = parsedData.product
 
 
-        //first opening the page you be met with this isf product is in or out of stock
+        //first opening the page you be met with whether the product is in or out of stock
         let invAmountDisplay = document.getElementById('invAmountDisplay')
         if (parsedData.invAmount <= 0){
             let addToCartbox = document.getElementById('add-sub-cart')
@@ -90,25 +90,24 @@ const getData = async() =>{
             invAmountDisplay.textContent = `${parsedData.invAmount} remaining`
         }
        
+         //increasing the amount counter while decreasing the remaining inventory amount
         let amountCounter = document.getElementById('amtCounter')
-        
         let firstButton = document.getElementById('first-btn')
         let sndButton = document.getElementById('snd-btn')
-        //increasing the amount Counter 
+       
        amountCounter.textContent = 0
        console.log(parsedData.invAmount)
         sndButton.addEventListener('click', () =>{
-            if(amountCounter.textContent <= parsedData.invAmount+1){
-                
+            if(parsedData.invAmount > 0){
                 amountCounter.textContent++
                 parsedData.invAmount--
                 console.log(parsedData.invAmount)
                 invAmountDisplay.textContent = `${parsedData.invAmount} remaining`
-            }else if (parsedData.invAmount <= 0){
+            }else if (parsedData.invAmount = 0){
                 invAmountDisplay.textContent = "0 remaining"
             } 
         })
-         //decreasing the amount counter 
+        //increasing the amount counter while decreasing the remaining inventory amount
         firstButton.addEventListener('click', () =>{
             if(amountCounter.textContent > 0){
             amountCounter.textContent--
@@ -123,7 +122,46 @@ const getData = async() =>{
                 
             }
         })
-       
+        let amtCounter = document.getElementById('amtCounter')
+        let cartBtn = document.getElementById('cart-btn')
+        let invAmount = parsedData.invAmount
+        cartBtn.addEventListener('click', async() =>{
+            let newAmt =  invAmount - amtCounter.textContent
+                console.log(newAmt)
+                let response = await fetch(`http://localhost:5000/update_shoe_inv`,
+                
+                    {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ 
+                        id: id, 
+                        invAmount: newAmt
+                        })
+                    }
+                );
+            //checking on the front end new inventory amount
+                response.json().then((parsedData) =>{
+                console.log(parsedData.invAmount)
+                })
+                let uploadStatusTag = document.getElementById('upload-status');
+                console.log(response.status);
+                if (response.status === 200) {
+                    console.log(response);
+                    console.log("upload complete!!!");
+                    uploadStatusTag.textContent = "Added To Cart";
+                    uploadStatusTag.style.color = "Green";
+            
+                } else{
+                    console.log(response);
+                    console.log("upload failed");
+                    console.log;
+                    uploadStatusTag.textContent = "Failed To add";
+                    uploadStatusTag.style.color = "red";
+            
+                }
+            
+        })
+        
 
 }
 getData();
@@ -142,3 +180,4 @@ photoArray.forEach((item) =>{
 
         
 })
+

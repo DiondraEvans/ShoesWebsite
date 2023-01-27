@@ -106,6 +106,21 @@ app.put('/update_shoe', async (req, res) => {
     console.log(response);
     res.send(response);
 })
+//a put request to change only the inventory amount. This is in use on the productPage
+app.put('/update_shoe_inv', async (req, res) => {
+    let id = req.body.id
+    let invAmount = req.body.invAmount
+    let myData = {
+        invAmount: invAmount
+    };
+
+    let response = await shoes.findByIdAndUpdate(id, myData, {new:true});
+    //checking in the terminal new inventory amount
+    console.log(response);
+    res.send(response);
+})
+
+//a delete request used on the Database page
 app.delete('/delete_shoe/:variable', async (req, res) =>{
     let id = req.params.variable
    

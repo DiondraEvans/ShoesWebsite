@@ -23,7 +23,7 @@
       </ul>
     </div>
     <div id="nav-back">
-      <img src="images/icon-cart.svg" alt="shopping cart">
+      <img id="cart" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADLUlEQVR4nO1ZTWsUQRCtqKCIKAjiTtVsgjHR+AEiwYt/QEVEL3oTYojRiIoEgpLpTp8EL15E8OBBg9FEgogk4slD9CievCgIQuInJGgQPERMyfTUJovr7G6yPZsdyIO+7E6/qlfdXV01A7CMGgNrOswaP7Imjh0Kv7OiF6ywjQHqoBbBCj8VFVEoaqAmxbDCiTxHxwv+B6hjk0Xuo9Os6Kd9ro9OQq2BNR0SMeMc+AdLPNsZrQq9hjSDLzStZk2TkZjMDkgzODwjoZAAuyDN4PCsRNtrCNIMNrhNhHyryey1qJRtvBZIM1jRgyhd41lIMzigM3LvDEKawcZrkVv+y/I5qRWwoqEF1WjJjJeVCwmwa+mF4PvKhZjMztw5qZhsobYV3RXbpnKysCrW9FUItzvxsAyw2bROqvBZNvWNbkg1DssydzohLAOssF221XNwBdbeeSG974y0BMID7rwnYuPvFiGfnZEWAStqtltK0TQbby24gj0nYfEYFZHNzohjwAqvSuBug2uwxkeREL/DOXke2MAK28VGvdB+cA3WdFGidM85eR5Y+wdk5d8lUhaxoj2Sgieck/+/krgCSUDuk6iPD7JbE7FxuXEDa/zFiv5wgNkkbESGND2WVWlPhh/PyfZ9lgR/niG6JIb6k+HHVxKoE0nwzxtSuDfuBV/l3NldImKKTcMa1/yFqTE0ZM/J5i1OuRVdlyDddMkbb1DTE4lcmzNOA6tsF2qFeK2ueIsb1dgtkbvjjtM7KsF544qzHKOtcmF9cJ4NNXa74ixt9DistN9RXHeBin6zachUTYgVo2nEsZBZ1nijqiKsEIU9EsVbkGaw9vdJJN9CmsE2XdK0FWOyCGkG5+6TPjwFaQYrv0NS5hikGWw2rp8rVzRe4yDTEKZmSCNYecdY44zDN4pjSydG4xGHQma4t95bKiH94sgI9/pkh8LRYt9VWNNg7ByFA9VXEV2OUdXa69PcbwFmc71FzJyp2Dkaf1TL93+cyt0n5JfrFC9iTuKYf9+Fo6Fjdmh8Kk4Nu5pTrc/Yk4XVbNiy+k2u5kA1YA+rpod2y9htg8OlHFrMnBB/ASqLF6YelUn9AAAAAElFTkSuQmCC" alt="shopping cart">
       <img id="avatarpic" src="images/image-avatar.png" alt="avatar profile">
     </div>
   </nav>
@@ -48,19 +48,19 @@
           </div>
           
         <div class="input-container">
-          <label for= "image-input">Enter image URL</label>
+          <label for= "image-input" id="imageUrl1">Enter image</label>
           <input type="text" id="image-input"/>
         </div>
         <div class="input-container">
-          <label for= "image-input">Enter a second image URL</label>
+          <label for= "image-input" id="imageUrl2">Enter a second image</label>
           <input type="text" id="image-input2"/>
         </div>
         <div class="input-container">
-          <label for= "image-input">Enter a third image URL</label>
+          <label for= "image-input" id="imageUrl3">Enter a third image</label>
           <input type="text" id="image-input3"/>
         </div>
         <div class="input-container">
-          <label for= "image-input">Enter a fourth image URL</label>
+          <label for= "image-input" id="imageUrl4">Enter a fourth image</label>
           <input type="text" id="image-input4"/>
         </div>
         
@@ -73,7 +73,7 @@
           <input type="number" id="inv-input" placeholder="How many is in stock?"/>
         </div>
         <button id="submit-button">Create</button>
-      
+        <p id="upload-status"></p>
     </div>  
       <div id="updating-shoes">
         <h1>Updating/Deleting shoes in database</h1>
@@ -96,19 +96,19 @@
         </div>
 
         <div class="input-container">
-          <label for= "image-input">Enter image URL</label>
+          <label for= "image-input" id="imageUrl1" >Enter image</label>
           <input type="text" id="updateimage-input"/>
         </div>
         <div class="input-container">
-          <label for= "image-input">Enter a second image URL</label>
+          <label for= "image-input" id="imageUrl2">Enter a second image</label>
           <input type="text" id="updateimage-input2"/>
         </div>
         <div class="input-container">
-          <label for= "image-input">Enter a third image URL</label>
+          <label for= "image-input" id="imageUrl3">Enter a third image</label>
           <input type="text" id="updateimage-input3"/>
         </div>
         <div class="input-container">
-          <label for= "image-input">Enter a fourth image URL</label>
+          <label for= "image-input" id="imageUrl4">Enter a fourth image</label>
           <input type="text" id="updateimage-input4"/>
         </div>
         <div class="input-container">

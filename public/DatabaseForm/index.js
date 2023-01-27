@@ -41,7 +41,23 @@ submitButton.addEventListener('click', async () =>{
             },
             body: JSON.stringify(shoe)
     })
-        
+    //upload status
+    let uploadStatusTag = document.getElementById('upload-status');
+    console.log(response.status);
+    if (response.status === 200) {
+        console.log(response);
+        console.log("upload complete!!!");
+        uploadStatusTag.textContent = "Upload Completed";
+        uploadStatusTag.style.color = "Green";
+
+    } else{
+        console.log(response);
+        console.log("upload failed");
+        console.log;
+        uploadStatusTag.textContent = "Upload Failed";
+        uploadStatusTag.style.color = "red";
+
+    }
       
          // now redirecting back to the home page
         // window.location.href ="../index.html"

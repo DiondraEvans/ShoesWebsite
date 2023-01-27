@@ -22,6 +22,10 @@ nav{
     justify-content: space-between;
     width: 80px;
 }
+#cart{
+    width: 25px;
+    height: 23px;
+}
 #menu{
     display: flex;
     flex-direction: row;
@@ -179,8 +183,10 @@ article img{
     align-items: center;
     border: none;
 }
+
 #cart-btn > img{
-    filter: hue-rotate(90deg) drop-shadow(8px 8px 10px #d48bc7);
+    width: 40px;
+    height: 20px;
 }
 #add-sub-cart{
     display: flex;
