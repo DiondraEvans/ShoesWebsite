@@ -48,6 +48,17 @@ nav{
     width: 67%;
     border-top: 1px solid lightgrey;
 }
+
+#search-button{
+    background-color: #000000;
+    border: 0;
+    padding: 7px;
+    border-radius: 5px;
+    color: white;
+}
+#search-input::placeholder{
+    color:#ff7d1b;
+}
 article{
     display: flex;
     flex-direction: row;
@@ -195,8 +206,11 @@ article img{
     align-items: center ;
     width: 340px;
 }
-#database-form{
-    border: 2px double #ff7d1b;
-    width: 500px;
-    margin-left: 20px;
+#update-shoe{
+    text-decoration:underline;
+    color: #ff7d1b;
+}
+#update-shoe:hover{
+    text-decoration:underline;
+    color: blue;
 }

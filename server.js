@@ -77,6 +77,17 @@ app.get('/productPage/:id', async (req, res) => {
     // console.log(response)
     res.send(response)
 })
+app.get('/index.html/:product', async (req, res) => {
+    let product= req.params.product
+    // console.log(JSON.stringify(id))
+   
+   let response = await shoes.findOne({"product": product});;
+
+    // let response = await shoes.find({_id : JSON.stringify(id)});
+    // console.log(response)
+    res.send(response)
+})
+
 
 
 app.put('/update_shoe', async (req, res) => {

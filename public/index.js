@@ -12,76 +12,102 @@ databaseLink.addEventListener('click', ()  => {
 
 let display = document.getElementById("grid-of-shoes")
 let button = document.getElementById("search-button")
-const getData = async () => {
-    const params = new Proxy(new URLSearchParams(window.location.search), {
-        get: (searchParams, prop) => searchParams.get(prop),
-      });
-      // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-      let value = params.idOfClickedItem; 
 
-   
-    let data = await fetch("/get_theShoe_data");
-    data.json().then((parsedData) => {
-        console.log(parsedData)
-        parsedData.forEach((object) => {
-        
-                let divBox = document.createElement('div');
-                divBox.style.width ="100%"
-                divBox.style.display ="flex"
-                divBox.style.flexDirection ="column"
-                divBox.style.justifyContent ="center"
-                divBox.style.alignItems ="center"
-                let objectId = object._id
-                divBox.setAttribute('id',objectId);
-               
-                
-                let image = document.createElement('img');
-                    image.src = object.img;
-                    image.style.borderRadius ="10px";
-                    image.style.width ="40%";
-                    divBox.appendChild(image);
-                
-                    let brand = document.createElement('h3')
-                    brand.innerHTML = object.brand;
-                    divBox.appendChild(brand);
+//connecting the js to server using fetch to send a model to the server
+//http://localhost:5000/productpage/?idOfClickedItem=63cedc1130cea2493aa71119
+const params = new Proxy(new URLSearchParams (window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop)
+})
+//Get the value of "some_key" in eg "https://example.com/?some_key=some_value" 
+let product = params.idInQuery;
+console.log(product)
 
-                    let price  = document.createElement('p')
-                    price.innerHTML = `$${object.price}`;
-                    divBox.appendChild(price);
-                    
-                    let description = document.createElement('p')
-                    description.innerHTML = ` ${object.description}`;
-                    description.style.width="70%";
-                    description.style.textAlign ="center";
-                    divBox.appendChild(description);
+if(!params.idInQuery){
+        const getData = async () => {
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+        });
+        // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+        let value = params.idOfClickedItem; 
+        let product = params.productOfClickedItem
 
-                    
-                    let stock = document.createElement('p')
-                     if(object.invAmount > 0){
-                            stock.innerHTML = "In Stock"
-                        } else{
-                            stock.innerHTML = `Out of Stock`
-                        }
-                    divBox.appendChild(stock);
-                    display.appendChild(divBox)
-                   
-                    //now once div populates, use their individual ids to go to the product page and fetch data
-                    document.getElementById(objectId).addEventListener('click', (event)  => {
-                        window.location.href =`../productpage?idInQuery=${event.target.id}`
-                     })
-                    
-
-            })
-        
-            
-    })
     
+        let data = await fetch("/get_theShoe_data");
+        data.json().then((parsedData) => {
+            console.log(parsedData)
+            parsedData.forEach((object) => {
+            
+                    let divBox = document.createElement('div');
+                    divBox.style.width ="100%"
+                    divBox.style.display ="flex"
+                    divBox.style.flexDirection ="column"
+                    divBox.style.justifyContent ="center"
+                    divBox.style.alignItems ="center"
+                    divBox.style.textAlign="center"
+                    let objectId = object._id
+                    divBox.setAttribute('id',objectId);
+                
+                    
+                    let image = document.createElement('img');
+                        image.src = object.img;
+                        image.style.borderRadius ="10px";
+                        image.style.width ="40%";
+                        //setting id to different elements in the div because if I did not do this it would direct me to a blank product page
+                        image.setAttribute('id', objectId)
+                        divBox.appendChild(image);
+                    
+                        let brand = document.createElement('h3')
+                        brand.innerHTML = object.brand;
+                        brand.setAttribute('id', objectId)
+                        divBox.appendChild(brand);
+
+                        let product = document.createElement('p')
+                        product.innerHTML = object.product
+                        product.setAttribute('id', objectId)
+                        divBox.appendChild(product);
+
+                        let price  = document.createElement('p')
+                        price.innerHTML = `$${object.price}`;
+                        price.setAttribute('id', objectId)
+                        divBox.appendChild(price);
+                        
+                        let description = document.createElement('p')
+                        description.innerHTML = ` ${object.description}`;
+                        description.style.width="70%";
+                        description.style.textAlign ="center";
+                        description.setAttribute('id', objectId)
+                        divBox.appendChild(description);
+
+                        
+                        let stock = document.createElement('p')
+                        if(object.invAmount > 0){
+                                stock.innerHTML = "In Stock"
+                            } else{
+                                stock.innerHTML = `Out of Stock`
+                            }
+                            stock.setAttribute('id', objectId)
+                        divBox.appendChild(stock);
+                        display.appendChild(divBox)
+                    
+                        //now once div populates, use their individual ids to go to the product page and fetch data
+                        document.getElementById(objectId).addEventListener('click', (event)  => {
+                            window.location.href =`../productpage?idInQuery=${event.target.id}`
+                        })
+                        
+
+                })
+            
+                
+        })
+        
+    }
+    getData()
 }
-getData()
 
 
 
 
+//search
 button.addEventListener('click', async() =>{
     //getting rid of the elements that were seen when you first get on page so that the filtered elements can populate
     display.innerHTML = '';
@@ -101,7 +127,7 @@ button.addEventListener('click', async() =>{
         parsedData.forEach((object) =>{
             //filter for price of name
             //a condition to test that means if user types all or all shoes, then put every object in the database in a div to display on the page
-            if(object.brand.toLowerCase() == searchInput.toLowerCase() || object.price == searchInput || searchInput.toLowerCase() == "all" || searchInput.toLowerCase() == "all shoes"){
+            if(object.brand.toLowerCase() == searchInput.toLowerCase() || object.price == searchInput || searchInput.toLowerCase() == "all" || searchInput.toLowerCase() == "all shoes" || searchInput.toLowerCase() == object.product.toLowerCase() ){
                 let divBox = document.createElement('div');
                 divBox.style.width ="100%"
                 divBox.style.display ="flex"
@@ -116,20 +142,29 @@ button.addEventListener('click', async() =>{
                     image.src = object.img;
                     image.style.borderRadius ="10px";
                     image.style.width ="40%";
+                    image.setAttribute('id', objectId)
                     divBox.appendChild(image);
                 
                     let brand = document.createElement('h3')
                     brand.innerHTML = object.brand;
+                    brand.setAttribute('id', objectId)
                     divBox.appendChild(brand);
+
+                    let product = document.createElement('p')
+                    product.innerHTML = object.product
+                    price.setAttribute('id', objectId)
+                    divBox.appendChild(price);
 
                     let price  = document.createElement('p')
                     price.innerHTML = `$${object.price}`;
+                    price.setAttribute('id', objectId)
                     divBox.appendChild(price);
                     
                     let description = document.createElement('p')
                     description.innerHTML = ` ${object.description}`;
                     description.style.width="70%";
                     description.style.textAlign ="center";
+                    description.setAttribute('id', objectId)
                     divBox.appendChild(description);
 
                     
@@ -139,6 +174,7 @@ button.addEventListener('click', async() =>{
                         } else{
                             stock.innerHTML = `Out of Stock`
                         }
+                        stock.setAttribute('id', objectId)
                     divBox.appendChild(stock);
                     display.appendChild(divBox)
                    
@@ -153,6 +189,8 @@ button.addEventListener('click', async() =>{
     })    
 })
 
+// const makingDivsAppear = async(trigger) =>{
+// }
 let mid = document.getElementById('mid')
 mid.addEventListener("click", async() =>{
      display.innerHTML ="";
@@ -184,6 +222,11 @@ mid.addEventListener("click", async() =>{
                     let brand = document.createElement('h3')
                     brand.innerHTML = object.brand;
                     divBox.appendChild(brand);
+                    
+                    let product = document.createElement('p')
+                    product.innerHTML = object.product
+                    price.setAttribute('id', objectId)
+                    divBox.appendChild(price);
 
                     let price  = document.createElement('p')
                     price.innerHTML = `$${object.price}`;
@@ -247,6 +290,11 @@ mid2.addEventListener('click', async() =>{
                     brand.innerHTML = object.brand;
                     divBox.appendChild(brand);
 
+                    let product = document.createElement('p')
+                    product.innerHTML = object.product
+                    price.setAttribute('id', objectId)
+                    divBox.appendChild(price);
+
                     let price  = document.createElement('p')
                     price.innerHTML = `$${object.price}`;
                     divBox.appendChild(price);
@@ -309,6 +357,11 @@ bottom.addEventListener('click', async() =>{
                     brand.innerHTML = object.brand;
                     divBox.appendChild(brand);
 
+                    let product = document.createElement('p')
+                    product.innerHTML = object.product
+                    price.setAttribute('id', objectId)
+                    divBox.appendChild(price);
+
                     let price  = document.createElement('p')
                     price.innerHTML = `$${object.price}`;
                     divBox.appendChild(price);
@@ -339,3 +392,69 @@ bottom.addEventListener('click', async() =>{
         })        
     })
 })
+
+
+//get data for parameter passed in and generate the div
+if(params.idInQuery){
+    const getDataForSpecificShoe = async() =>{
+    display.innerHTML ="";
+  
+    let data = await fetch (`http://localhost:5000/index.html/${product}`);
+    console.log(data)
+    let parsedData = await data.json()
+    if (parsedData.product){
+    console.log(parsedData)
+                let divBox = document.createElement('div');
+                divBox.style.width ="100%";
+                divBox.style.display ="flex";
+                divBox.style.flexDirection ="column";
+                divBox.style.justifyContent ="center";
+                divBox.style.alignItems ="center";
+                divBox.style.textAlign ="center";
+                let objectId = parsedData._id
+                divBox.setAttribute('id',objectId);
+               
+                
+                let image = document.createElement('img');
+                    image.src = parsedData.img;
+                    image.style.borderRadius ="10px";
+                    image.style.width ="40%";
+                    divBox.appendChild(image);
+                
+                    let brand = document.createElement('h3')
+                    brand.innerHTML = parsedData.brand;
+                    divBox.appendChild(brand);
+                    
+                    let product = document.createElement('p')
+                    product.innerHTML = parsedData.product
+                    divBox.appendChild(product);
+
+                    let price  = document.createElement('p')
+                    price.innerHTML = `$${parsedData.price}`;
+                    divBox.appendChild(price);
+                    
+                    let description = document.createElement('p')
+                    description.innerHTML = ` ${parsedData.description}`;
+                    description.style.width="70%";
+                    description.style.textAlign ="center";
+                    divBox.appendChild(description);
+
+                    
+                    let stock = document.createElement('p')
+                     if(parsedData.invAmount > 0){
+                            stock.innerHTML = "In Stock"
+                        } else{
+                            stock.innerHTML = `Out of Stock`
+                        }
+                    divBox.appendChild(stock);
+                    display.appendChild(divBox)
+    
+                        //now once div populates, use their individual ids to go to the product page and fetch data
+                        document.getElementById(objectId).addEventListener('click', (event)  => {
+                        window.location.href =`../productpage?idInQuery=${event.target.id}`
+                     })
+                }                
+                    
+}
+getDataForSpecificShoe();
+}

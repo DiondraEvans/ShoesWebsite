@@ -25,7 +25,10 @@ let databaseLink =  document.getElementById('Add-Shoes');
 databaseLink.addEventListener('click', ()  => {
    window.location.href ="../DatabaseForm/index.html"
 })
-
+let UpdateShoeLink = document.getElementById('update-shoe');
+UpdateShoeLink.addEventListener('click', ()  => {
+    window.location.href ="../DatabaseForm/index.html"
+ })
 let image = document.getElementById('img-1')
 let image1a = document.getElementById('img-1a')
 let image2 = document.getElementById('img-2')
@@ -46,6 +49,7 @@ console.log(id)
 //make sure to use the full address when fetching
 const getData = async() =>{
     let data = await fetch (`http://localhost:5000/productPage/${id}`);
+    // console.log(data)
     let parsedData = await data.json()
         console.log(parsedData)
 
@@ -165,6 +169,14 @@ const getData = async() =>{
 
 }
 getData();
+let button = document.getElementById("search-button")
+
+
+button.addEventListener('click', ()  => {
+    let searchInput = document.getElementById('search-input').value
+    window.location.href =`../index.html?idInQuery=${searchInput}`
+ })
+
 
 let photoArray = [image1a, image2,image3, image4];
 
