@@ -209,6 +209,7 @@ mid.addEventListener("click", async() =>{
                 divBox.style.flexDirection ="column"
                 divBox.style.justifyContent ="center"
                 divBox.style.alignItems ="center"
+                divBox.style.textAlign="center"
                 let objectId = object._id
                 divBox.setAttribute('id',objectId);
                
@@ -225,8 +226,8 @@ mid.addEventListener("click", async() =>{
                     
                     let product = document.createElement('p')
                     product.innerHTML = object.product
-                    price.setAttribute('id', objectId)
-                    divBox.appendChild(price);
+                    product.setAttribute('id', objectId)
+                    divBox.appendChild(product);
 
                     let price  = document.createElement('p')
                     price.innerHTML = `$${object.price}`;
@@ -276,6 +277,7 @@ mid2.addEventListener('click', async() =>{
                 divBox.style.flexDirection ="column"
                 divBox.style.justifyContent ="center"
                 divBox.style.alignItems ="center"
+                divBox.style.textAlign="center"
                 let objectId = object._id
                 divBox.setAttribute('id',objectId);
                
@@ -292,8 +294,8 @@ mid2.addEventListener('click', async() =>{
 
                     let product = document.createElement('p')
                     product.innerHTML = object.product
-                    price.setAttribute('id', objectId)
-                    divBox.appendChild(price);
+                    product.setAttribute('id', objectId)
+                    divBox.appendChild(product);
 
                     let price  = document.createElement('p')
                     price.innerHTML = `$${object.price}`;
@@ -343,6 +345,7 @@ bottom.addEventListener('click', async() =>{
                 divBox.style.flexDirection ="column"
                 divBox.style.justifyContent ="center"
                 divBox.style.alignItems ="center"
+                divBox.style.textAlign="center"
                 let objectId = object._id
                 divBox.setAttribute('id',objectId);
                
@@ -359,8 +362,8 @@ bottom.addEventListener('click', async() =>{
 
                     let product = document.createElement('p')
                     product.innerHTML = object.product
-                    price.setAttribute('id', objectId)
-                    divBox.appendChild(price);
+                    product.setAttribute('id', objectId)
+                    divBox.appendChild(product);
 
                     let price  = document.createElement('p')
                     price.innerHTML = `$${object.price}`;
@@ -418,25 +421,30 @@ if(params.idInQuery){
                 let image = document.createElement('img');
                     image.src = parsedData.img;
                     image.style.borderRadius ="10px";
+                    image.setAttribute('id', objectId)
                     image.style.width ="40%";
                     divBox.appendChild(image);
                 
                     let brand = document.createElement('h3')
                     brand.innerHTML = parsedData.brand;
+                    brand.setAttribute('id', objectId)
                     divBox.appendChild(brand);
                     
                     let product = document.createElement('p')
                     product.innerHTML = parsedData.product
+                    product.setAttribute('id', objectId)
                     divBox.appendChild(product);
 
                     let price  = document.createElement('p')
                     price.innerHTML = `$${parsedData.price}`;
+                    price.setAttribute('id', objectId)
                     divBox.appendChild(price);
                     
                     let description = document.createElement('p')
                     description.innerHTML = ` ${parsedData.description}`;
                     description.style.width="70%";
                     description.style.textAlign ="center";
+                    description.setAttribute('id', objectId)
                     divBox.appendChild(description);
 
                     

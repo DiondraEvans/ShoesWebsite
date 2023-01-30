@@ -56,6 +56,7 @@ nav{
     border-radius: 5px;
     color: white;
 }
+
 #search-input::placeholder{
     color:#ff7d1b;
 }
