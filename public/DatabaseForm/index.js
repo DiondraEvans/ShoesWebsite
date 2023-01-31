@@ -59,8 +59,8 @@ submitButton.addEventListener('click', async () =>{
 
     }
       
-         // now redirecting back to the home page
-        // window.location.href ="../index.html"
+        //  now redirecting back to the home page
+        window.location.href ="../index.html"
      
      
 })
@@ -172,7 +172,7 @@ deleteButton.addEventListener('click', async()  => {
 
         console.log(finalData);
         // now redirecting back to the home page
-        // window.location.href ="../index.html"
+        window.location.href ="../index.html"
         }
     }
 })

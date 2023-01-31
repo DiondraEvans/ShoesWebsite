@@ -1,5 +1,8 @@
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+*{
+    box-sizing: border-box;
+}
 html{
     font-family: 'Montserrat', sans-serif;
 }
@@ -52,8 +55,6 @@ article{
     align-items: center;
 }
 
-
-
 #database-form{
     display: flex;
     flex-direction: row;
@@ -68,11 +69,11 @@ article{
 }
 
 #adding-shoes{
-    padding: 20px;
-    height: 560px;
+    padding: 37px;
+    height: 600px;
     display: flex;
     flex-direction: column;
-    width: 553px;
+    width: 575px;
     justify-content: space-between;
     border-radius: 10px;
     align-items: center;
@@ -110,8 +111,8 @@ article{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 #updating-shoes{
-    padding: 20px;
-    height: 553px;
+    padding: 37px;
+    height: 599px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -176,4 +177,9 @@ option{
 }
 input:focus{
     background-color:#ff7e1b48;
+}
+#button-box{
+    width: 459px;
+    display: flex;
+    justify-content: space-around;
 }

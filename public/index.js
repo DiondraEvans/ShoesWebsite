@@ -152,8 +152,8 @@ button.addEventListener('click', async() =>{
 
                     let product = document.createElement('p')
                     product.innerHTML = object.product
-                    price.setAttribute('id', objectId)
-                    divBox.appendChild(price);
+                    product.setAttribute('id', objectId)
+                    divBox.appendChild(product);
 
                     let price  = document.createElement('p')
                     price.innerHTML = `$${object.price}`;
