@@ -134,6 +134,7 @@ button.addEventListener('click', async() =>{
                 divBox.style.flexDirection ="column"
                 divBox.style.justifyContent ="center"
                 divBox.style.alignItems ="center"
+                divBox.style.textAlign ="center"
                 let objectId = object._id
                 divBox.setAttribute('id',objectId);
                
