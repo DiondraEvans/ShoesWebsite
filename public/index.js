@@ -19,8 +19,8 @@ const params = new Proxy(new URLSearchParams (window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop)
 })
 //Get the value of "some_key" in eg "https://example.com/?some_key=some_value" 
-let product = params.idInQuery;
-console.log(product)
+let search = params.idInQuery;
+console.log(search)
 
 if(!params.idInQuery){
         const getData = async () => {
@@ -402,12 +402,14 @@ bottom.addEventListener('click', async() =>{
 if(params.idInQuery){
     const getDataForSpecificShoe = async() =>{
     display.innerHTML ="";
-  
-    let data = await fetch (`http://localhost:5000/index.html/${product}`);
+    let data = await fetch (`http://localhost:5000/index.html/${search}`);
     console.log(data)
     let parsedData = await data.json()
-    if (parsedData.product){
     console.log(parsedData)
+        //iterate through the data to get access to each index/object/element. Then if the search in the url matched the object's price then excute code. if it matched the brand, product or the string "all", when lowercased, then execute the code
+    for(i = 0; i < parsedData.length; i++){
+        if(search == parsedData[i].price || search.toLowerCase() == parsedData[i].brand.toLowerCase() || search.toLowerCase() ==  parsedData[i].product.toLowerCase() || search.toLowerCase() == "all"){
+            console.log(parsedData[i])
                 let divBox = document.createElement('div');
                 divBox.style.width ="100%";
                 divBox.style.display ="flex";
@@ -415,34 +417,34 @@ if(params.idInQuery){
                 divBox.style.justifyContent ="center";
                 divBox.style.alignItems ="center";
                 divBox.style.textAlign ="center";
-                let objectId = parsedData._id
+                let objectId = parsedData[i]._id
                 divBox.setAttribute('id',objectId);
                
                 
                 let image = document.createElement('img');
-                    image.src = parsedData.img;
+                    image.src = parsedData[i].img;
                     image.style.borderRadius ="10px";
                     image.setAttribute('id', objectId)
                     image.style.width ="40%";
                     divBox.appendChild(image);
                 
                     let brand = document.createElement('h3')
-                    brand.innerHTML = parsedData.brand;
+                    brand.innerHTML = parsedData[i].brand;
                     brand.setAttribute('id', objectId)
                     divBox.appendChild(brand);
                     
                     let product = document.createElement('p')
-                    product.innerHTML = parsedData.product
+                    product.innerHTML = parsedData[i].product
                     product.setAttribute('id', objectId)
                     divBox.appendChild(product);
 
                     let price  = document.createElement('p')
-                    price.innerHTML = `$${parsedData.price}`;
+                    price.innerHTML = `$${parsedData[i].price}`;
                     price.setAttribute('id', objectId)
                     divBox.appendChild(price);
                     
                     let description = document.createElement('p')
-                    description.innerHTML = ` ${parsedData.description}`;
+                    description.innerHTML = ` ${parsedData[i].description}`;
                     description.style.width="70%";
                     description.style.textAlign ="center";
                     description.setAttribute('id', objectId)
@@ -450,7 +452,7 @@ if(params.idInQuery){
 
                     
                     let stock = document.createElement('p')
-                     if(parsedData.invAmount > 0){
+                     if(parsedData[i].invAmount > 0){
                             stock.innerHTML = "In Stock"
                         } else{
                             stock.innerHTML = `Out of Stock`
@@ -462,8 +464,9 @@ if(params.idInQuery){
                         document.getElementById(objectId).addEventListener('click', (event)  => {
                         window.location.href =`../productpage?idInQuery=${event.target.id}`
                      })
-                }                
-                    
+        }  
+    }
+                       
 }
 getDataForSpecificShoe();
 }

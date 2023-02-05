@@ -71,21 +71,20 @@ app.get('/productPage/:id', async (req, res) => {
     let id= req.params.id
     // console.log(JSON.stringify(id))
    
-   let response = await shoes.findOne({"_id":id});;
+   let response = await shoes.findOne({"_id":id});
 
     // let response = await shoes.find({_id : JSON.stringify(id)});
     // console.log(response)
     res.send(response)
 })
-app.get('/index.html/:product', async (req, res) => {
-    let product= req.params.product
-    // console.log(JSON.stringify(id))
-   
-   let response = await shoes.findOne({"product": product});;
+app.get('/index.html/:search', async (req, res) => {
 
-    // let response = await shoes.find({_id : JSON.stringify(id)});
-    // console.log(response)
-    res.send(response)
+   let result = await shoes.find({});
+    
+
+//     // let response = await shoes.find({_id : JSON.stringify(id)});
+   
+    res.send(result)
 })
 
 
