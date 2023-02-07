@@ -77,18 +77,6 @@ app.get('/productPage/:id', async (req, res) => {
     // console.log(response)
     res.send(response)
 })
-app.get('/index.html/:search', async (req, res) => {
-
-   let result = await shoes.find({});
-    
-
-//     // let response = await shoes.find({_id : JSON.stringify(id)});
-   
-    res.send(result)
-})
-
-
-
 app.put('/update_shoe', async (req, res) => {
     let id = req.body.id
     let brand = req.body.brand

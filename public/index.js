@@ -22,16 +22,8 @@ const params = new Proxy(new URLSearchParams (window.location.search), {
 let search = params.idInQuery;
 console.log(search)
 
-if(!params.idInQuery){
+if(!search){
         const getData = async () => {
-        const params = new Proxy(new URLSearchParams(window.location.search), {
-            get: (searchParams, prop) => searchParams.get(prop),
-        });
-        // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-        let value = params.idOfClickedItem; 
-        let product = params.productOfClickedItem
-
-    
         let data = await fetch("/get_theShoe_data");
         data.json().then((parsedData) => {
             console.log(parsedData)
@@ -399,10 +391,10 @@ bottom.addEventListener('click', async() =>{
 
 
 //get data for parameter passed in and generate the div
-if(params.idInQuery){
+if(search){
     const getDataForSpecificShoe = async() =>{
     display.innerHTML ="";
-    let data = await fetch (`http://localhost:5000/index.html/${search}`);
+    let data = await fetch (`http://localhost:5000/get_theShoe_data`);
     console.log(data)
     let parsedData = await data.json()
     console.log(parsedData)
