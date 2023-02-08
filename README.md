@@ -1,7 +1,7 @@
 <h1>👟 Sneakers Ecommerce Website</h1>
 <hr style="width: 15px">
 <video>
-<source src="../public/video/MyDemo.mp4" type="video/mp4">
+<source src="\public\video\MyDemo.mp4" type="video/mp4">
 </video>
 <p>Feel free to watch the following video to learn more about my website:</p>
 <a href="https://vimeo.com/797162411">Watch full code review </a>
@@ -39,11 +39,11 @@
 </ul>
 
 <h3>Redirects</h3>
-<ul>
-<ol>The create route should redirect to HOME after creation</ol>
-<ol>The delete route should redirect to HOME after deletion</ol>
-<ol>The edit route will redirect to the edited product's PRODUCT page after the object is changed in your collection.</ol>
-</ul>
+<ol>
+<li>The create route should redirect to HOME after creation</li>
+<li>The delete route should redirect to HOME after deletion</li>
+<li>The edit route will redirect to the edited product's PRODUCT page after the object is changed in your collection.</li>
+</ol>
 
 <hr>
 <h2>Technologies</h2>
