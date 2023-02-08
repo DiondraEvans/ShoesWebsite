@@ -1,6 +1,6 @@
 <h1>👟 Sneakers Ecommerce Website</h1>
 <hr style="width: 15px">
-![shoewebsite](https://user-images.githubusercontent.com/40680988/217678591-ec05f1f8-acf9-470b-9f38-fe8ef52898fd.PNG)
+<img src="https://user-images.githubusercontent.com/40680988/217678591-ec05f1f8-acf9-470b-9f38-fe8ef52898fd.PNG">
 <p>Feel free to watch the following video to learn more about my website:</p>
 <a href="https://vimeo.com/797162411">Watch full code review </a>
 <h2>Project Description</h2>
