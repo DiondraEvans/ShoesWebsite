@@ -116,7 +116,6 @@ updateButton.addEventListener('click', async()  => {
         let product = document.getElementById('updateproduct-input').value
         let invAmount = document.getElementById('updateinv-input').value
         console.log(id);
-        console.log(stock);
         
         let response = await fetch(`http://localhost:5000/update_shoe`,
         // example of code to update fruit
