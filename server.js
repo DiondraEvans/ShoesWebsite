@@ -119,8 +119,8 @@ app.put('/update_shoe_inv', async (req, res) => {
 })
 
 //a delete request used on the Database page
-app.delete('/delete_shoe/:variable', async (req, res) =>{
-    let id = req.params.variable
+app.delete('/delete_shoe/:id', async (req, res) =>{
+    let id = req.params.id
    
     let response = await shoes.deleteOne({_id: id});
 

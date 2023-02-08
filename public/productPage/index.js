@@ -1,4 +1,3 @@
-
 let discountedPrice;
 const newPrice = (price) => {
     discountedPrice = Math.abs(price / 2);
