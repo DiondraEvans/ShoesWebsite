@@ -1,6 +1,6 @@
 <h1>👟 Sneakers Ecommerce Website</h1>
 <hr style="width: 15px">
-<img src= "../public/images/shoewebsite.PNG" style= "width: 100%">
+<img src= "images/shoewebsite.PNG" style= "width: 100%">
 <p>Feel free to watch the following video to learn more about my website:</p>
 <a href="https://vimeo.com/797162411">Watch full code review </a>
 <h2>Project Description</h2>
