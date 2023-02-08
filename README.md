@@ -1,8 +1,6 @@
 <h1>👟 Sneakers Ecommerce Website</h1>
 <hr style="width: 15px">
-<video>
-<source src="\public\video\MyDemo.mp4" type="video/mp4">
-</video>
+<img src= "../public/images/shoewebsite.PNG" style= "width: 100%">
 <p>Feel free to watch the following video to learn more about my website:</p>
 <a href="https://vimeo.com/797162411">Watch full code review </a>
 <h2>Project Description</h2>
@@ -46,7 +44,7 @@
 </ol>
 
 <hr>
-<h2>Technologies</h2>
+<h2>👩‍💻Technologies</h2>
 <ol>
 <li>HTML</li>
 <li>CSS</li>
@@ -56,4 +54,4 @@
 <li>MongoDB</li>
 </ol>
 <hr>
-<h3>Thank you for stopping by</h3>
+<h3>Thank you for stopping by 👋</h3>
