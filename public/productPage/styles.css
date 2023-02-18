@@ -142,6 +142,15 @@ article img{
     align-items: center;
     width: 40%;
 }
+#anim{
+    width: 406px;
+    position: absolute;
+    top: 453px;
+    left: 767px;
+    pointer-events: none;
+    visibility: hidden;
+}
+
 
 #price-dis #discount{
     color: #ff7d1b;

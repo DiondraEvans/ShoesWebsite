@@ -54,8 +54,7 @@ const getData = async() =>{
 
         let shoeInfo = document.getElementById('shoe-info')
         shoeInfo.innerHTML = parsedData.description
-
-
+         
         let price = document.getElementById('price')
         newPrice(parsedData.price);
         price.innerHTML = `$${discountedPrice}`
@@ -127,10 +126,23 @@ const getData = async() =>{
         })
         let amtCounter = document.getElementById('amtCounter')
         let cartBtn = document.getElementById('cart-btn')
-        let invAmount = parsedData.invAmount
+        let anim = document.getElementById('anim')
+        let invAmount = parsedData.invAmount 
+        //adding a animated json file to go off when cart btn is pressed. using the bodymovin cdn
+        const animItem = bodymovin.loadAnimation({
+                container: anim,
+                type: 'svg',
+                loop: false,
+                autoplay: false,
+                path: 'https://assets5.lottiefiles.com/packages/lf20_qpph2rp5.json'
+            })
         cartBtn.addEventListener('click', async() =>{
+            anim.style.visibility="visible";
+            animItem.goToAndPlay(0,true);
+           
             let newAmt =  invAmount - amtCounter.textContent
                 console.log(newAmt)
+                
                 let response = await fetch(`http://localhost:5000/update_shoe_inv`,
                 
                     {
@@ -164,7 +176,9 @@ const getData = async() =>{
                 }
             
         })
-        
+        animItem.addEventListener('complete', () =>{
+            anim.style.visibility="hidden"
+        })
 
 }
 getData();
