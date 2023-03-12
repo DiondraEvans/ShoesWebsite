@@ -1,10 +1,13 @@
 <h1>👟 Sneakers Ecommerce Website</h1>
 <hr style="width: 15px">
 <img src="https://user-images.githubusercontent.com/40680988/217678591-ec05f1f8-acf9-470b-9f38-fe8ef52898fd.PNG">
+<h2>individual shoe page</h2>
 <img src="./public/images/product_page_img.png">
-<a href=https://sneakers-c24z.onrender.com/index.html>Check out website here</a>
-<p>Feel free to watch the following video to learn more about my website:</p>
-<a href="https://vimeo.com/797162411">Watch full code review </a>
+<ul>
+<li><a href=https://sneakers-c24z.onrender.com/index.html> 💻 Check out website here</a></li>
+<li><p>📺 Feel free to watch the following video to learn more about my website:</p><></li>
+    <li><a href="https://vimeo.com/797162411">Watch full code review </a></li>
+</ul>
 <h2>Project Description</h2>
 <p>Created an E-commerce website assigned as a project in my software development bootcamp at Perscholas. I made it as close to a real E-commerce site as possible with a list of products, preview images, brand names, and prices. You can add as many products as you want to your cart as well. This project was assigned to us to strengthen our basic HTML, CSS, and Javascript ability to make a CRUD application using RESTful routes in Express while using MongoDB as a database to store information. The product being sold on my E-commerce website is shoes. As a UX designer as well, I tried to make the experience as clean and pleasant as possible incorporating a price filter and a simple layout upon loading the page. </p>
 <h2>Pages:</h2>
