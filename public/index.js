@@ -395,7 +395,7 @@ bottom.addEventListener('click', async() =>{
 if(search){
     const getDataForSpecificShoe = async() =>{
     display.innerHTML ="";
-    let data = await fetch (`http://localhost:5000/get_theShoe_data`);
+    let data = await fetch (`/get_theShoe_data`);
     console.log(data)
     let parsedData = await data.json()
     console.log(parsedData)
