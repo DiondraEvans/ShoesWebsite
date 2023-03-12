@@ -67,8 +67,8 @@ app.get('/get_theShoe_data', async (req, res) => {
 })
 //get specific shoe data using a parameter
 //when testing the server, ake sure you ctrl c and restart it again sometimes that helps
-app.get('/productPage', async (req, res) => {
-    let id = req.query.idInQuery
+app.get('/productPage/:id', async (req, res) => {
+    let id= req.params.id
     // console.log(JSON.stringify(id))
    
    let response = await shoes.findOne({"_id":id});
