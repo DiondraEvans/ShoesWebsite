@@ -5,10 +5,11 @@ let homeLink =  document.getElementById('Home');
 homeLink.addEventListener('click', ()  => {
    window.location.href ="./index.html"
 })
-let databaseLink =  document.getElementById('Add-Shoes');
-databaseLink.addEventListener('click', ()  => {
-   window.location.href ="./DatabaseForm/index.html"
-})
+//for production reasons, commenting out the code
+// let databaseLink =  document.getElementById('Add-Shoes');
+// databaseLink.addEventListener('click', ()  => {
+//    window.location.href ="./DatabaseForm/index.html"
+// })
 
 let display = document.getElementById("grid-of-shoes")
 let button = document.getElementById("search-button")

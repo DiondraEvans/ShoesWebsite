@@ -20,14 +20,16 @@ let homeLink =  document.getElementById('Home');
 homeLink.addEventListener('click', ()  => {
    window.location.href ="../index.html"
 })
-let databaseLink =  document.getElementById('Add-Shoes');
-databaseLink.addEventListener('click', ()  => {
-   window.location.href ="../DatabaseForm/index.html"
-})
-let UpdateShoeLink = document.getElementById('update-shoe');
-UpdateShoeLink.addEventListener('click', ()  => {
-    window.location.href ="../DatabaseForm/index.html"
- })
+//commenting out the code for production reasons
+// let databaseLink =  document.getElementById('Add-Shoes');
+// databaseLink.addEventListener('click', ()  => {
+//    window.location.href ="../DatabaseForm/index.html"
+// })
+// let UpdateShoeLink = document.getElementById('update-shoe');
+// UpdateShoeLink.addEventListener('click', ()  => {
+//     window.location.href ="../DatabaseForm/index.html"
+//  })
+
 let image = document.getElementById('img-1')
 let image1a = document.getElementById('img-1a')
 let image2 = document.getElementById('img-2')
