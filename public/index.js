@@ -84,7 +84,7 @@ if(!search){
                     
                         //now once div populates, use their individual ids to go to the product page and fetch data
                         document.getElementById(objectId).addEventListener('click', (event)  => {
-                            window.location.href =`../productpage?idInQuery=${event.target.id}`
+                            window.location.href =`../productPage?idInQuery=${event.target.id}`
                         })
                         
 
