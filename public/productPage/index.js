@@ -49,7 +49,7 @@ let id = params.idInQuery;
 console.log(id)
 //make sure to use the full address when fetching
 const getData = async() =>{
-    let data = await fetch (`http://localhost:5000/productPage/${id}`);
+    let data = await fetch (`/productPage/${id}`);
     // console.log(data)
     let parsedData = await data.json()
         console.log(parsedData)
