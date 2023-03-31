@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 require('dotenv').config()
 
 //have a create route, create data in mongoDB
-let shoes = require('../models/shoes');
+let shoes = require('./models/shoes');
 
 //create express app
 const app = express();
