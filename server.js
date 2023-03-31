@@ -129,20 +129,10 @@ app.delete('/delete_shoe/:id', async (req, res) =>{
    res.send({data: `deleted ${response.deletedCount} items.`})
 })
 
-module.exports.handler = async (event, context) => {
-    const path = event.path.replace(/\.netlify\/functions\/[^/]+/, '');
-    const segments = path.split('/').filter(e => e);
-  
-    switch (event.httpMethod) {
-      case 'GET':
-        return app(segments.join('/'), event.queryStringParameters)
-          .then(html => ({ statusCode: 200, body: html }));
-      default:
-        return { statusCode: 405, body: 'Method Not Allowed' };
-    }
-  };
+const port = process.env.PORT || 5000 // listen on the port provided by Netlify or port 3000
 
-app.listen(5000,function (){
+
+app.listen( port ,function (){
     console.log('listening on port');
 });
 
