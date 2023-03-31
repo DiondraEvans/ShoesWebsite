@@ -129,10 +129,9 @@ app.delete('/delete_shoe/:id', async (req, res) =>{
    res.send({data: `deleted ${response.deletedCount} items.`})
 })
 
-const port = process.env.PORT || 5000 // listen on the port provided by Netlify or port 3000
 
 
-app.listen( port ,function (){
+app.listen(5000,function (){
     console.log('listening on port');
 });
 
