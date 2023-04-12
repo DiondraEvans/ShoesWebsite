@@ -1,8 +1,7 @@
 //require all documents first
 const express = require ('express');
 const mongoose = require('mongoose');
-
- 
+const cors = require('cors')
 require('dotenv').config()
 
 //have a create route, create data in mongoDB
@@ -11,6 +10,7 @@ let shoes = require('./models/shoes');
 //create express app
 const app = express();
 // write down all app.use
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
