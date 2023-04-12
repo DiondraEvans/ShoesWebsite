@@ -18,7 +18,7 @@ let pastPrice = document.getElementById("past-price");
 
 let homeLink =  document.getElementById('Home');
 homeLink.addEventListener('click', ()  => {
-   window.location.href ="https://shoes-website-api.vercel.app/index.html"
+   window.location.href ="https://shoes-website-beta.vercel.app/index.html"
 })
 //commenting out the code for production reasons
 // let databaseLink =  document.getElementById('Add-Shoes');
@@ -189,7 +189,7 @@ let button = document.getElementById("search-button")
 
 button.addEventListener('click', ()  => {
     let searchInput = document.getElementById('search-input').value
-    window.location.href =`https://shoes-website-beta.vercel.app/index.html?idInQuery=${searchInput}`
+    window.location.href =`../index.html?idInQuery=${searchInput}`
  })
 
 
