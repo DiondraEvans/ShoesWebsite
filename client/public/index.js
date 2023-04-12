@@ -3,7 +3,7 @@ console.log("Home Page");
 
 let homeLink =  document.getElementById('Home');
 homeLink.addEventListener('click', ()  => {
-   window.location.href ="https://shoes-website-api.vercel.app/index.html"
+   window.location.href ="https://shoes-website-beta.vercel.app/index.html"
 })
 //for production reasons, commenting out the code
 // let databaseLink =  document.getElementById('Add-Shoes');
@@ -84,7 +84,7 @@ if(!search){
                     
                         //now once div populates, use their individual ids to go to the product page and fetch data
                         document.getElementById(objectId).addEventListener('click', (event)  => {
-                            window.location.href =`https://shoes-website-api.vercel.app/productPage?idInQuery=${event.target.id}`
+                            window.location.href =`https://shoes-website-beta.vercel.app/productPage?idInQuery=${event.target.id}`
                         })
                         
 
@@ -174,7 +174,7 @@ button.addEventListener('click', async() =>{
                    
                     //now once div populates, use their individual ids to go to the product page and fetch data
                     document.getElementById(objectId).addEventListener('click', (event)  => {
-                        window.location.href =`https://shoes-website-api.vercel.app/productPage?idInQuery=${event.target.id}`
+                        window.location.href =`https://shoes-website-beta.vercel.app/productPage?idInQuery=${event.target.id}`
                      })
                     
               
@@ -245,7 +245,7 @@ mid.addEventListener("click", async() =>{
                    
                     //now once div populates, use their individual ids to go to the product page and fetch data
                     document.getElementById(objectId).addEventListener('click', (event)  => {
-                        window.location.href =`https://shoes-website-api.vercel.app/productPage?idInQuery=${event.target.id}`
+                        window.location.href =`https://shoes-website-beta.vercel.app/productPage?idInQuery=${event.target.id}`
                      })
                     
               
@@ -313,7 +313,7 @@ mid2.addEventListener('click', async() =>{
                    
                     //now once div populates, use their individual ids to go to the product page and fetch data
                     document.getElementById(objectId).addEventListener('click', (event)  => {
-                        window.location.href =`https://shoes-website-api.vercel.app/productPage?idInQuery=${event.target.id}`
+                        window.location.href =`https://shoes-website-beta.vercel.app/productPage?idInQuery=${event.target.id}`
                      })
                     
               
@@ -381,7 +381,7 @@ bottom.addEventListener('click', async() =>{
                    
                     //now once div populates, use their individual ids to go to the product page and fetch data
                     document.getElementById(objectId).addEventListener('click', (event)  => {
-                        window.location.href =`https://shoes-website-api.vercel.app/productpage?idInQuery=${event.target.id}`
+                        window.location.href =`https://shoes-website-beta.vercel.app/productpage?idInQuery=${event.target.id}`
                      })
                     
               
@@ -455,7 +455,7 @@ if(search){
     
                         //now once div populates, use their individual ids to go to the product page and fetch data
                         document.getElementById(objectId).addEventListener('click', (event)  => {
-                        window.location.href =`https://shoes-website-api.vercel.app/productPage?idInQuery=${event.target.id}`
+                        window.location.href =`https://shoes-website-beta.vercel.app/productPage?idInQuery=${event.target.id}`
                      })
         }  
     }

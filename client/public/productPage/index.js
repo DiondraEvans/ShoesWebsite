@@ -145,7 +145,7 @@ const getData = async() =>{
             let newAmt =  invAmount - amtCounter.textContent
                 console.log(newAmt)
                 
-                let response = await fetch(`/update_shoe_inv`,
+                let response = await fetch(`https://shoes-website-api.vercel.app/update_shoe_inv`,
                 
                     {
                         method: 'PUT',
@@ -189,7 +189,7 @@ let button = document.getElementById("search-button")
 
 button.addEventListener('click', ()  => {
     let searchInput = document.getElementById('search-input').value
-    window.location.href =`https://shoes-website-api.vercel.app/index.html?idInQuery=${searchInput}`
+    window.location.href =`https://shoes-website-beta.vercel.app/index.html?idInQuery=${searchInput}`
  })
 
 
