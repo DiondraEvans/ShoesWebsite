@@ -111,7 +111,7 @@ button.addEventListener('click', async() =>{
     //console.log the search input to certify it was captured (not necessary)
     console.log(searchInput);
     //grabbing data from the server and saving it to a variable
-    let data = await fetch("/get_theShoe_data");
+    let data = await fetch("https://shoes-website-api.vercel.app/get_theShoe_data");
 
     //we need to parse the data from the object so that it is readable. I used the then function
     data.json().then((parsedData) => {
@@ -188,7 +188,7 @@ button.addEventListener('click', async() =>{
 let mid = document.getElementById('mid')
 mid.addEventListener("click", async() =>{
      display.innerHTML ="";
-    let data = await fetch("/get_theShoe_data");
+    let data = await fetch("https://shoes-website-api.vercel.app/get_theShoe_data");
 
     //we need to parse the data from the object so that it is readable. I used the then function
     data.json().then((parsedData) => {
@@ -256,7 +256,7 @@ mid.addEventListener("click", async() =>{
 let mid2 = document.getElementById('mid2')
 mid2.addEventListener('click', async() =>{
      display.innerHTML ="";
-    let data = await fetch("/get_theShoe_data");
+    let data = await fetch("https://shoes-website-api.vercel.app/get_theShoe_data");
 
     //we need to parse the data from the object so that it is readable. I used the then function
     data.json().then((parsedData) => {
@@ -324,7 +324,7 @@ mid2.addEventListener('click', async() =>{
 let bottom = document.getElementById('bottom')
 bottom.addEventListener('click', async() =>{
     display.innerHTML ="";
-     let data = await fetch("/get_theShoe_data");
+     let data = await fetch("https://shoes-website-api.vercel.app/get_theShoe_data");
 
     //we need to parse the data from the object so that it is readable. I used the then function
     data.json().then((parsedData) => {
@@ -395,7 +395,7 @@ bottom.addEventListener('click', async() =>{
 if(search){
     const getDataForSpecificShoe = async() =>{
     display.innerHTML ="";
-    let data = await fetch (`/get_theShoe_data`);
+    let data = await fetch (`https://shoes-website-api.vercel.app/get_theShoe_data`);
     console.log(data)
     let parsedData = await data.json()
     console.log(parsedData)

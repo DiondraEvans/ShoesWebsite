@@ -18,7 +18,7 @@ let pastPrice = document.getElementById("past-price");
 
 let homeLink =  document.getElementById('Home');
 homeLink.addEventListener('click', ()  => {
-   window.location.href ="../index.html"
+   window.location.href ="https://shoes-website-api.vercel.app/index.html"
 })
 //commenting out the code for production reasons
 // let databaseLink =  document.getElementById('Add-Shoes');
@@ -49,7 +49,7 @@ let id = params.idInQuery;
 console.log(id)
 //make sure to use the full address when fetching
 const getData = async() =>{
-    let data = await fetch (`/productPage/${id}`);
+    let data = await fetch (`https://shoes-website-api.vercel.app/productPage/${id}`);
     // console.log(data)
     let parsedData = await data.json()
         console.log(parsedData)
@@ -189,7 +189,7 @@ let button = document.getElementById("search-button")
 
 button.addEventListener('click', ()  => {
     let searchInput = document.getElementById('search-input').value
-    window.location.href =`../index.html?idInQuery=${searchInput}`
+    window.location.href =`https://shoes-website-api.vercel.app/index.html?idInQuery=${searchInput}`
  })
 
 
