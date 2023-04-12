@@ -13,7 +13,7 @@ const app = express();
 // write down all app.use
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(express.static('../client/public'));
+app.use(express.static('public'));
 //remember to input user and pass variables
 let connectionString =`mongodb+srv://${process.env.mongoUsername}:${process.env.mongoPassword}@mongosetupcluster.anqqbl8.mongodb.net/EcommerceSite?retryWrites=true&w=majority`
 
