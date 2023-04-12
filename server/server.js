@@ -131,8 +131,9 @@ app.delete('/delete_shoe/:id', async (req, res) =>{
 
 
 
-app.listen(5000,function (){
-    console.log('listening on port');
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}.`);
 });
 
 //because i was able to use my get route to send my query to, I don't need the code for the route below:
