@@ -3,7 +3,7 @@ console.log("Home Page");
 
 let homeLink =  document.getElementById('Home');
 homeLink.addEventListener('click', ()  => {
-   window.location.href ="./index.html"
+   window.location.href ="https://shoes-website-api.vercel.app/index.html"
 })
 //for production reasons, commenting out the code
 // let databaseLink =  document.getElementById('Add-Shoes');
@@ -25,7 +25,7 @@ console.log(search)
 
 if(!search){
         const getData = async () => {
-        let data = await fetch("/get_theShoe_data");
+        let data = await fetch("https://shoes-website-api.vercel.app/get_theShoe_data");
         data.json().then((parsedData) => {
             console.log(parsedData)
             parsedData.forEach((object) => {
