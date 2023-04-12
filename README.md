@@ -3,9 +3,8 @@
 <h2>Home page</h2>
 <img src="https://user-images.githubusercontent.com/40680988/217678591-ec05f1f8-acf9-470b-9f38-fe8ef52898fd.PNG">
 <h2>Individual shoe page</h2>
-<img src="./public/images/product_page_img.png">
 <ol>
-<li><a href=https://sneakers-c24z.onrender.com/index.html> 💻 Check out website here</a></li>
+<li><a href="https://shoes-website-beta.vercel.app/"> 💻 Check out website here</a></li>
 <li><p>📺 Feel free to watch the following video to learn more about my website:</p></li>
     <ul>
         <li><a href="https://vimeo.com/797162411">Watch full code review </a></li>
